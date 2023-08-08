@@ -6,7 +6,7 @@ import Womens from './Womens';
 import Mens from './Mens';
 import Kids from './Kids';
 import BagsGear from './BagsGear';
-import ProductDescription from './ProductDescription';
+import Product from './Product';
 
 const Redirect = () => {
     const navigate = useNavigate();
@@ -38,6 +38,7 @@ const Shop = () => {
                 <Route path="bags-gear" element={<BagsGear />} />
             </Routes>
             <Outlet />
+            <Product />
         </div>
     )
 }
