@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const Product = ({
     productImage,
+    productCategory,
     productName,
     productDescription,
     productPrice,

@@ -2,11 +2,13 @@ import React from 'react';
 import Product from './Product';
 import products from '../productData';
 
-const ProductList = () => {
+const ProductList = ({ category }) => {
 
-    const productIdsToRender = [1, 2, 3, 4, 5];
+    //const productIdsToRender = [1, 2, 3, 4, 5];
 
-    const filteredProducts = products.filter(product => productIdsToRender.includes(product.id));
+    //const filteredProducts = products.filter(product => productIdsToRender.includes(product.id));
+
+    const filteredProducts = products.filter(product => product.category.includes(category));
 
     return (
         <div className="product-list">
@@ -19,6 +21,7 @@ const ProductList = () => {
                     productPrice={product.price}
                     productColor={product.color}
                     productSize={product.size}
+                    productCategory={product.category}
                     //onAddToCart={...}  // Add respective functions
                     //onAddToWishlist={...} // Add respective functions
                 />

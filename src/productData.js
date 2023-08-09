@@ -1,7 +1,7 @@
 const products = [
     {
         id: 1,
-        category: ["womens"],
+        category: ["womens", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 1",
         description: "This is product 1",
@@ -12,7 +12,7 @@ const products = [
     },
     {
         id: 2,
-        category: ["womens"],
+        category: ["womens", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 2",
         description: "This is product 2",
@@ -23,7 +23,7 @@ const products = [
     },
     {
         id: 3,
-        category: ["womens"],
+        category: ["womens", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 3",
         description: "This is product 3",
@@ -34,7 +34,7 @@ const products = [
     },
     {
         id: 4,
-        category: ["womens"],
+        category: ["womens", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 4",
         description: "This is product 4",
@@ -45,7 +45,7 @@ const products = [
     },
     {
         id: 5,
-        category: ["womens"],
+        category: ["womens", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 5",
         description: "This is product 5",
@@ -56,7 +56,7 @@ const products = [
     },
     {
         id: 6,
-        category: ["womens"],
+        category: ["womens", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 6",
         description: "This is product 6",
@@ -67,7 +67,7 @@ const products = [
     },
     {
         id : 7,
-        category: ["womens"],
+        category: ["womens", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 7",
         description: "This is product 7",
@@ -78,7 +78,7 @@ const products = [
     },
     {
         id : 8,
-        category: ["womens"],
+        category: ["womens", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 8",
         description: "This is product 8",
@@ -89,7 +89,7 @@ const products = [
     },
     {
         id : 9,
-        category: ["womens"],
+        category: ["womens", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 9",
         description: "This is product 9",
@@ -100,7 +100,7 @@ const products = [
     },
     {
         id : 10,
-        category: ["womens"],
+        category: ["womens", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 10",
         description: "This is product 10",
@@ -246,7 +246,7 @@ const products = [
     },
     {
         id: 26,
-        category: ["mens"],
+        category: ["mens", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 26",
         description: "This is product 26",
@@ -255,7 +255,7 @@ const products = [
     },
     {
         id: 27,
-        category: ["mens"],
+        category: ["mens", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 27",
         description: "This is product 27",
@@ -264,7 +264,7 @@ const products = [
     },
     {
         id: 28,
-        category: ["mens"],
+        category: ["mens", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 28",
         description: "This is product 28",
@@ -273,7 +273,7 @@ const products = [
     },
     {
         id: 29,
-        category: ["mens"],
+        category: ["mens", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 29",
         description: "This is product 29",
@@ -282,7 +282,7 @@ const products = [
     },
     {
         id: 30,
-        category: ["mens"],
+        category: ["mens", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 30",
         description: "This is product 30",
@@ -291,7 +291,7 @@ const products = [
     },
     {
         id: 31,
-        category: ["mens"],
+        category: ["mens", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 31",
         description: "This is product 31",
@@ -300,7 +300,7 @@ const products = [
     },
     {
         id: 32,
-        category: ["mens"],
+        category: ["mens", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 32",
         description: "This is product 32",
@@ -309,7 +309,7 @@ const products = [
     },
     {
         id: 33,
-        category: ["mens"],
+        category: ["mens", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 33",
         description: "This is product 33",
@@ -318,7 +318,7 @@ const products = [
     },
     {
         id: 34,
-        category: ["mens"],
+        category: ["mens", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 34",
         description: "This is product 34",
@@ -327,7 +327,7 @@ const products = [
     },
     {
         id: 35,
-        category: ["mens"],
+        category: ["mens", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 35",
         description: "This is product 35",
@@ -471,7 +471,7 @@ const products = [
     },
     {
         id: 51,
-        category: ["kids"],
+        category: ["kids", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 51",
         description: "This is product 51",
@@ -480,7 +480,7 @@ const products = [
     },
     {
         id: 52,
-        category: ["kids"],
+        category: ["kids", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 52",
         description: "This is product 52",
@@ -489,7 +489,7 @@ const products = [
     },
     {
         id: 53,
-        category: ["kids"],
+        category: ["kids", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 53",
         description: "This is product 53",
@@ -498,7 +498,7 @@ const products = [
     },
     {
         id: 54,
-        category: ["kids"],
+        category: ["kids", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 54",
         description: "This is product 54",
@@ -507,7 +507,7 @@ const products = [
     },
     {
         id: 55,
-        category: ["kids"],
+        category: ["kids", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 55",
         description: "This is product 55",
@@ -516,7 +516,7 @@ const products = [
     },
     {
         id: 56,
-        category: ["kids"],
+        category: ["kids", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 56",
         description: "This is product 56",
@@ -525,7 +525,7 @@ const products = [
     },
     {
         id: 57,
-        category: ["kids"],
+        category: ["kids", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 57",
         description: "This is product 57",
@@ -534,7 +534,7 @@ const products = [
     },
     {
         id: 58,
-        category: ["kids"],
+        category: ["kids", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 58",
         description: "This is product 58",
@@ -543,7 +543,7 @@ const products = [
     },
     {
         id: 59,
-        category: ["kids"],
+        category: ["kids", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 59",
         description: "This is product 59",
@@ -552,7 +552,7 @@ const products = [
     },
     {
         id: 60,
-        category: ["kids"],
+        category: ["kids", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 60",
         description: "This is product 60",
@@ -696,7 +696,7 @@ const products = [
     },
     {
         id: 76,
-        category: ["bags-and-gear"],
+        category: ["bags-and-gear", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 76",
         description: "This is product 76",
@@ -705,7 +705,7 @@ const products = [
     },
     {
         id: 77,
-        category: ["bags-and-gear"],
+        category: ["bags-and-gear", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 77",
         description: "This is product 77",
@@ -714,7 +714,7 @@ const products = [
     },
     {
         id: 78,
-        category: ["bags-and-gear"],
+        category: ["bags-and-gear", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 78",
         description: "This is product 78",
@@ -723,7 +723,7 @@ const products = [
     },
     {
         id: 79,
-        category: ["bags-and-gear"],
+        category: ["bags-and-gear", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 79",
         description: "This is product 79",
@@ -732,7 +732,7 @@ const products = [
     },
     {
         id: 80,
-        category: ["bags-and-gear"],
+        category: ["bags-and-gear", "sale"],
         image: "https://via.placeholder.com/150",
         name: "Product 80",
         description: "This is product 80",
@@ -741,7 +741,7 @@ const products = [
     },
     {
         id: 81,
-        category: ["bags-and-gear"],
+        category: ["bags-and-gear", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 81",
         description: "This is product 81",
@@ -750,7 +750,7 @@ const products = [
     },
     {
         id: 82,
-        category: ["bags-and-gear"],
+        category: ["bags-and-gear", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 82",
         description: "This is product 82",
@@ -759,7 +759,7 @@ const products = [
     },
     {
         id: 83,
-        category: ["bags-and-gear"],
+        category: ["bags-and-gear", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 83",
         description: "This is product 83",
@@ -768,7 +768,7 @@ const products = [
     },
     {
         id: 84,
-        category: ["bags-and-gear"],
+        category: ["bags-and-gear", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 84",
         description: "This is product 84",
@@ -777,7 +777,7 @@ const products = [
     },
     {
         id: 85,
-        category: ["bags-and-gear"],
+        category: ["bags-and-gear", "new-and-featured"],
         image: "https://via.placeholder.com/150",
         name: "Product 85",
         description: "This is product 85",

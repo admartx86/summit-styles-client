@@ -40,7 +40,6 @@ const Shop = () => {
                 <Route path="bags-gear" element={<BagsGear />} />
             </Routes>
             <Outlet />
-            <ProductList />
         </div>
     )
 }
