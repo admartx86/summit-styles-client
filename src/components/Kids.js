@@ -1,13 +1,9 @@
 import React from "react";
+import ProductList from "./ProductList";
 
 const Kids = () => {
     return(
-        <div>
-            <h1>Kids'</h1>
-            <p>Kids' Hat</p>
-            <p>Kids' Shirt</p>
-            <p>Kids' Pants</p>
-        </div>
+        <ProductList category="kids" /> 
     )
 }
 
