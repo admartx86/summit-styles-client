@@ -5,7 +5,10 @@ import Wishlist from './Wishlist';
 import ShoppingCart from "./ShoppingCart";
 import About from "./About";
 import Home  from "./Home";
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link, Outlet } from "react-router-dom";
+import SocialMediaLinks from "./SocialMediaLinks";
+import FooterLinks from "./FooterLinks";
+import Newsletter from "./Newsletter";
 class App extends Component {
   render() {
     return (
@@ -30,8 +33,12 @@ class App extends Component {
           <Route path="/cart" element={<ShoppingCart />} />
           <Route path="/about" element={<About />} />
         </Routes>
-
+        <Outlet />
+        <FooterLinks />
+        <SocialMediaLinks />
+        <Newsletter />
       </div>
+
     );
   }
 }

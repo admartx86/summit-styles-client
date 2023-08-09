@@ -30,6 +30,8 @@ const CategoryCarousel = () => {
     };
 
     return (
+        <div>
+            Everything you're looking for!
         <Carousel
             showThumbs={false}
             showStatus={false}
@@ -51,6 +53,7 @@ const CategoryCarousel = () => {
                 </Link>
             ))}
         </Carousel>
+        </div>
     );
 };
 
