@@ -21,7 +21,6 @@ const Redirect = () => {
 const Shop = () => {
     return(
         <div>
-            <h1>Shop</h1>
             <nav>
                 <Link to="/shop/sale">Sale</Link>
                 <Link to="/shop/new-featured">New & Featured</Link>

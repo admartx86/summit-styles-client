@@ -10,6 +10,9 @@ class App extends Component {
   render() {
     return (
       <div>
+        <div>
+          <h1>🏔 Summit Styles</h1>
+        </div>
         <nav>
         <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>
