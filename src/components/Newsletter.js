@@ -11,8 +11,8 @@ const Newsletter = () => {
     }
 
     return(
-        <div style={{ padding: '20px', maxWidth: '400px', margin: 'auto' }}>
-            <h3>Become a Summit Insider</h3>
+        <div>
+            <h3>Become a Summit Insider!</h3>
             <p>Subscribe to our newsletter for member-exclusive news and discounts!</p>
             <form onSubmit={handleSubmit}>
                 <input 
@@ -20,9 +20,8 @@ const Newsletter = () => {
                     placeholder="Email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
-                    style={{ padding: '10px', width: '100%', marginBottom: '10px' }}
                 />
-                <div style={{ marginBottom: '10px' }}>
+                <div>
                     <input 
                         type="checkbox" 
                         id="privacyCheck" 
@@ -33,7 +32,7 @@ const Newsletter = () => {
                         I agree to the Privacy Policy & Terms of Use
                     </label>
                 </div>
-                <button type="submit" style={{ padding: '10px 20px', cursor: 'pointer' }}>
+                <button type="submit">
                     Subscribe
                 </button>
             </form>

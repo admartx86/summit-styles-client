@@ -9,6 +9,8 @@ import { Route, Routes, Link, Outlet } from "react-router-dom";
 import SocialMediaLinks from "./SocialMediaLinks";
 import FooterLinks from "./FooterLinks";
 import Newsletter from "./Newsletter";
+
+import '../css/styles.css';
 class App extends Component {
   render() {
     return (
@@ -19,10 +21,10 @@ class App extends Component {
         <nav>
         <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>
-        <Link to="/account">My Account</Link>
-        <Link to="/wishlist">Wishlist</Link>
+        {/*<Link to="/account">My Account</Link>*/}
+        {/*<Link to="/wishlist">Wishlist</Link>*/}
         <Link to="/cart">Shopping Cart</Link>
-        <Link to="/about">About</Link>
+        {/*<Link to="/about">About</Link>*/}
         </nav>
 
         <Routes>
@@ -34,9 +36,15 @@ class App extends Component {
           <Route path="/about" element={<About />} />
         </Routes>
         <Outlet />
+        <footer>
+        <div style={{ fontFamily: 'Switzer-Regular', fontSize: '2rem' }}>
+    This is Switzer-Regular.
+</div>
+
         <FooterLinks />
         <SocialMediaLinks />
         <Newsletter />
+        </footer>
       </div>
 
     );
