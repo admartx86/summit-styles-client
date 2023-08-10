@@ -31,7 +31,30 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,  // This will match image files
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: '[path][name].[ext]',  // This will retain the original file name and path
+                    },
+                  },
+                ],
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: '[name].[ext]',
+                      outputPath: 'fonts/'
+                    }
+                  } 
+                ]
+            } 
         ]
     }
 

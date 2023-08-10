@@ -1,0 +1,14 @@
+@import 'switzer.css';
+
+* {
+    font-family: 'Switzer-Regular'
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: top;
+    border: solid 10px red;
+    margin: 20px;
+}
