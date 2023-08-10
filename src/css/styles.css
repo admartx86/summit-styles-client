@@ -1,7 +1,13 @@
-@import 'switzer.css';
+@font-face {
+    font-family: 'Switzer-Regular';
+    src: url('../otffonts/Switzer-Regular.otf') format('opentype');
+         font-weight: 300;
+         font-display: normal;
+         font-style: normal;
+  }
 
 * {
-    font-family: 'Switzer-Regular'
+    font-family: 'Switzer-Regular';
 }
 
 footer {
@@ -9,6 +15,6 @@ footer {
     justify-content: center;
     justify-self: center;
     align-items: top;
-    border: solid 10px red;
+    border: solid 20px red;
     margin: 20px;
 }

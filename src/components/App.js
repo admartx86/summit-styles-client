@@ -9,8 +9,8 @@ import { Route, Routes, Link, Outlet } from "react-router-dom";
 import SocialMediaLinks from "./SocialMediaLinks";
 import FooterLinks from "./FooterLinks";
 import Newsletter from "./Newsletter";
-
 import '../css/styles.css';
+
 class App extends Component {
   render() {
     return (
