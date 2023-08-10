@@ -1,6 +1,7 @@
 import React from 'react';
 import Product from './Product';
 import products from '../productData';
+import { Link } from 'react-router-dom';
 
 const ProductList = ({ category }) => {
 
@@ -13,6 +14,7 @@ const ProductList = ({ category }) => {
     return (
         <div className="product-list">
             {filteredProducts.map(product => (
+                <div key={product.id}>
                 <Product
                     key={product.id}
                     productImage={product.image}
@@ -25,6 +27,8 @@ const ProductList = ({ category }) => {
                     //onAddToCart={...}  // Add respective functions
                     //onAddToWishlist={...} // Add respective functions
                 />
+                <Link to={`/shop/product/${product.id}`}>View Details</Link>
+                </div>
             ))}
         </div>
     );

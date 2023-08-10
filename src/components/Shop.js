@@ -9,6 +9,7 @@ import BagsGear from './BagsGear';
 import Product from './Product';
 import products from '../productData';
 import ProductList from './ProductList';
+import ProductPage from './ProductPage';
 
 const Redirect = () => {
     const navigate = useNavigate();
@@ -37,6 +38,7 @@ const Shop = () => {
                 <Route path="mens" element={<Mens />} />
                 <Route path="kids" element={<Kids />} />
                 <Route path="bags-gear" element={<BagsGear />} />
+                <Route path="product/:productId" element={<ProductPage />} />
             </Routes>
             <Outlet />
         </div>
