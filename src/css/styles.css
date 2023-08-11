@@ -1,10 +1,20 @@
+a, a:visited, a:active, a:focus {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover {
+    color: grey;
+}
+
 @font-face {
     font-family: 'Switzer-Regular';
     src: url('../otffonts/Switzer-Regular.otf') format('opentype');
-         font-weight: 300;
-         font-display: normal;
-         font-style: normal;
-  }
+    font-weight: 300;
+    font-display: normal;
+    font-style: normal;
+}
 
 * {
     font-family: 'Switzer-Regular';
@@ -13,8 +23,132 @@
 footer {
     display: flex;
     justify-content: center;
-    justify-self: center;
-    align-items: top;
-    border: solid 20px red;
-    margin: 20px;
+    padding: 20px 20px;
+    background-color: #ffffff;
+}
+
+.footer-links {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+}
+
+.footer-links h3 {
+    color: #000000;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.footer-links div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.footer-links a {
+    margin-bottom: 20px;
+}
+
+.newsletter {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 75%;
+    max-width: 200px;
+    box-sizing: border-box;
+}
+
+.newsletter input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.newsletter h3 {
+    margin-bottom: 20px;
+}
+
+.newsletter button {
+    display: block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    max-width: 100px;
+}
+
+.newsletter button:hover {
+    background-color: #0056b3;
+}
+
+.newsletter input,
+.newsletter button,
+.newsletter div {
+    margin-bottom: 10px;
+}
+
+.newsletter form > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.newsletter form > div > input[type="checkbox"],
+.newsletter form > div > label {
+    margin: 0;
+    padding: 0;
+}
+
+.social-media-links {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.social-media-links img {
+    margin-right: 20px;
+}
+
+.social-media-links h3 {
+    margin-bottom: 20px;
+}
+
+/*
+.social-media-links * {
+    outline: 1px solid red;
+}
+
+.newsletter * {
+    outline: 1px solid red;
+}
+
+footer > * {
+    border: solid blue 1px;
+}
+
+footer {
+    border: solid red 1px;
+}
+
+.footer-links * {
+    outline: 1px solid red;
+}
+*/
+
+.newsletter p {
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
