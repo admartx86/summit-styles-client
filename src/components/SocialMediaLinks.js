@@ -7,15 +7,15 @@ import pinterestIcon from '../img/pinterest-icon-48.png';
 
 const SocialMediaLinks = () => {
     return(
-        <div>
+        <section className="social-media-links">
         <h3>Follow us!</h3>
-        <div className="social-media-links">
+        <div>
             <a href="#" onClick={(e) => e.preventDefault()}><img src={twitterIcon} alt="Twitter"/></a>
             <a href="#" onClick={(e) => e.preventDefault()}><img src={facebookIcon} alt="Facebook"/></a>
             <a href="#" onClick={(e) => e.preventDefault()}><img src={instagramIcon} alt="Instagram"/></a>
             <a href="#" onClick={(e) => e.preventDefault()}><img src={pinterestIcon} alt="Pinterest"/></a>
         </div>
-        </div>
+        </section>
     )
 }
 

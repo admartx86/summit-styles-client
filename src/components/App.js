@@ -37,10 +37,6 @@ class App extends Component {
         </Routes>
         <Outlet />
         <footer>
-        <div style={{ fontFamily: 'Switzer-Regular', fontSize: '2rem' }}>
-    This is Switzer-Regular.
-</div>
-
         <FooterLinks />
         <SocialMediaLinks />
         <Newsletter />

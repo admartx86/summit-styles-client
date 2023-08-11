@@ -11,10 +11,10 @@ const Newsletter = () => {
     }
 
     return(
-        <div>
+        <section className="newsletter">
             <h3>Become a Summit Insider!</h3>
-            <p>Subscribe to our newsletter for member-exclusive news and discounts!</p>
             <form onSubmit={handleSubmit}>
+            <p>Subscribe to our newsletter for member-exclusive news and discounts!</p>
                 <input 
                     type="email" 
                     placeholder="Email"
@@ -36,7 +36,7 @@ const Newsletter = () => {
                     Subscribe
                 </button>
             </form>
-        </div>
+        </section>
     )
 }
 
