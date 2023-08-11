@@ -27,9 +27,7 @@ const Newsletter = () => {
                         id="privacyCheck" 
                         checked={isChecked}
                         onChange={() => setChecked(!isChecked)}
-                    />
-                    <label htmlFor="privacyCheck" style={{ marginLeft: '5px' }}>
-                        I agree to the Privacy Policy & Terms of Use
+                    /><label htmlFor="privacyCheck">I agree to the <a href="#" onClick={(e) => e.preventDefault()}>Privacy Policy & Terms of Use</a>
                     </label>
                 </div>
                 <button type="submit">
