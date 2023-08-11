@@ -4,7 +4,7 @@ a, a:visited, a:active, a:focus {
     outline: none;
 }
 
-a:hover {
+.footer-links a:hover {
     color: grey;
 }
 
@@ -68,8 +68,17 @@ footer {
     box-sizing: border-box;
 }
 
+
 .newsletter input[type="checkbox"] {
-    margin-right: 5px;
+    margin-right: 20px;
+    display: inline-block;
+    width: 20px; /* increased width */
+    height: 20px;
+    box-sizing: border-box; /* ensure the width includes padding and borders */
+}
+
+.newsletter label {
+    margin-left: 10px;
 }
 
 .newsletter h3 {
@@ -105,10 +114,16 @@ footer {
     justify-content: flex-start;
 }
 
-.newsletter form > div > input[type="checkbox"],
-.newsletter form > div > label {
+/*.newsletter form > div > label */
+
+.newsletter form > div > input[type="checkbox"] {
     margin: 0;
     padding: 0;
+}
+
+.newsletter a {
+    border-bottom: 1px solid #000000;
+    text-decoration: none; /* To ensure the default underline from the anchor is removed */
 }
 
 .social-media-links {
