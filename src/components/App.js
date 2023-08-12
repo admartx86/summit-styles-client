@@ -15,10 +15,11 @@ class App extends Component {
   render() {
     return (
       <div>
+        <header>
         <div>
           <h1>🏔 Summit Styles</h1>
         </div>
-        <nav>
+        <nav className="main-navigation">
         <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>
         {/*<Link to="/account">My Account</Link>*/}
@@ -26,7 +27,7 @@ class App extends Component {
         <Link to="/cart">Shopping Cart</Link>
         {/*<Link to="/about">About</Link>*/}
         </nav>
-
+        </header>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop/*" element={<Shop />} />
@@ -35,6 +36,7 @@ class App extends Component {
           <Route path="/cart" element={<ShoppingCart />} />
           <Route path="/about" element={<About />} />
         </Routes>
+        
         <Outlet />
         <footer>
         <FooterLinks />
