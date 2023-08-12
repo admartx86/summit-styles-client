@@ -17,7 +17,7 @@ const Newsletter = () => {
             <p>Subscribe to our newsletter for member-exclusive news and discounts!</p>
                 <input 
                     type="email" 
-                    placeholder="Email"
+                    placeholder="Enter your email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                 />

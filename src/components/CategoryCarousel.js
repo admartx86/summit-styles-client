@@ -39,8 +39,8 @@ const CategoryCarousel = () => {
             showIndicators={false}
             showArrows={true}
             autoPlay={true}
-            interval={3000}
-            transitionTime={3000}
+            interval={6000}
+            transitionTime={2000}
             centerMode={true}
             centerSlidePercentage={33.33}
             swipeable={true}
