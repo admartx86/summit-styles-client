@@ -11,6 +11,7 @@ import products from '../productData';
 import ProductList from './ProductList';
 import ProductPage from './ProductPage';
 
+
 const Redirect = () => {
     const navigate = useNavigate();
     React.useEffect(() => {
@@ -22,6 +23,7 @@ const Redirect = () => {
 const Shop = () => {
     return(
         <div>
+
             <nav>
                 <Link to="/shop/sale">Sale</Link>
                 <Link to="/shop/new-featured">New & Featured</Link>

@@ -1,37 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Product from './Product';
-import products from '../productData';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const ProductList = ({ category }) => {
-
-    //const productIdsToRender = [1, 2, 3, 4, 5];
-
-    //const filteredProducts = products.filter(product => productIdsToRender.includes(product.id));
-
-    const filteredProducts = products.filter(product => product.category.includes(category));
+    const [products, setProducts] = useState([]);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        // Fetch products
+        const res = await axios.get('http://172.233.221.154:3001/products');
+  
+        let productList = res.data;
+  
+        // Filter products by category if a category is specified
+        if (category) {
+          productList = productList.filter(product => product.category.includes(category));
+        }
+  
+        setProducts(productList);
+      };
+  
+      fetchData();
+  
+    }, [category]);
+  
+    // ... rest of the code ...
+    
+    
 
     return (
         <div className="product-list">
-            {filteredProducts.map(product => (
+            {products.map(product => (
                 <div key={product.id}>
-                <Product
-                    key={product.id}
-                    productImage={product.image}
-                    productName={product.name}
-                    productDescription={product.description}
-                    productPrice={product.price}
-                    productColor={product.color}
-                    productSize={product.size}
-                    productCategory={product.category}
-                    //onAddToCart={...}  // Add respective functions
-                    //onAddToWishlist={...} // Add respective functions
-                />
-                <Link to={`/shop/product/${product.id}`}>View Details</Link>
+                    <Product
+                        key={product.id}
+                        productImage={product.image}
+                        productName={product.name}
+                        productDescription={product.description}
+                        productPrice={product.price}
+                        productColor={product.color}
+                        productSize={product.size}
+                        productCategory={product.category}
+                        //onAddToCart={...}  // Add respective functions
+                        //onAddToWishlist={...} // Add respective functions
+                    />
+                    <Link to={`/shop/product/${product.id}`}>View Details</Link>
                 </div>
             ))}
         </div>
     );
-}
+};
 
 export default ProductList;
