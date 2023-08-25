@@ -63,12 +63,14 @@ footer {
     align-items: flex-start;
 }
 
+
 .newsletter input[type="email"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 75%;
     max-width: 200px;
+    margin-top: 10px;
     box-sizing: border-box;
 }
 
@@ -112,7 +114,7 @@ background-color: #007bff;
 .newsletter input,
 .newsletter button,
 .newsletter div {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .newsletter form > div {
@@ -174,7 +176,7 @@ footer {
     margin-bottom: 10px;
 }
 
-header {
+/*header {
     display: flex;
 }
 
@@ -194,7 +196,7 @@ header > div {
     flex: 1;
     padding: 20px 20px;
 }
-
+*/
 /*
 .Section1 * {
     border: solid red 1px;
@@ -241,7 +243,7 @@ header > div {
     padding: 60px;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
     height: 500px; /* Adjust based on your needs */
 }
 
@@ -251,13 +253,84 @@ header > div {
     background-color: #5dbea3;
     color: #fff;
     border: none;
-    border-radius: 20px;
+    border-radius: 30px;
     cursor: pointer;
     width: 100%;
-    max-width: 200px;
     border: 2px solid #ffffff;
+    font-size: x-large;
 }
 
 .Section1 button:hover, .Section3 button:hover {
     background-color: #4ca787;
 }
+
+header {
+    display: flex;
+}
+
+
+
+
+
+
+
+
+.main-navigation {
+    display: flex;
+    flex: 2;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 20px;
+    font-size: xx-large;
+}
+
+
+.site-logo {
+    display: flex;
+    flex: 1;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    font-size: 4rem;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+.carousel-header {
+    margin-left: 50px;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.carousel {
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.image-wrapper {
+    position: relative;
+}
+
+* {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.category {
+    position: absolute;
+    top: 50%;  /* Centers the text vertically on the image */
+    left: 50%;  /* Centers the text horizontally on the image */
+    transform: translate(-50%, -50%);  /* Adjusts the text to be truly centered */
+    color: white;  /* Makes the text color white so it stands out on the image */
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark background for better readability */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+

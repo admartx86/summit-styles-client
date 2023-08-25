@@ -2,23 +2,38 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import { useNavigate, Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import womensImage from '../img/womens.jpg';
+import mensImage from '../img/mens.jpg';
+import kidsImage from '../img/kids.jpg';
+import bagsGearImage from '../img/bagsgear.jpg';
+import newFeaturedImage from '../img/newfeatured.jpg';
+import saleImage from '../img/sale.jpg';
 
 const categories = [
-    "Women's",
     "Men's",
     "Kids'",
     "Bags & Gear",
     "New & Featured",
-    "Sale"
+    "Sale",
+    "Women's",
 ];
 
+const categoryImages = {
+    "Sale": saleImage,
+    "Women's": womensImage,
+    "Men's": mensImage,
+    "Kids'": kidsImage,
+    "Bags & Gear": bagsGearImage,
+    "New & Featured": newFeaturedImage,
+};
+
 const categoryRoutes = {
+    "Sale": "/shop/sale",
     "Women's": "/shop/womens",
     "Men's": "/shop/mens",
     "Kids'": "/shop/kids",
     "Bags & Gear": "/shop/bags-gear",
     "New & Featured": "/shop/new-featured",
-    "Sale": "/shop/sale"
 };
 
 const CategoryCarousel = () => {
@@ -30,9 +45,8 @@ const CategoryCarousel = () => {
     };
 
     return (
-        <div>
-            Everything you're looking for!
-        <Carousel
+        <div className="category-carousel">
+        <Carousel className="carousel"
             showThumbs={false}
             showStatus={false}
             infiniteLoop={true}
@@ -47,9 +61,13 @@ const CategoryCarousel = () => {
             onClickItem={(index, item) => handleItemClick(index)}
         >
             {categories.map((category, index) => (
-                <Link key={index} to={categoryRoutes[category]}>
-                    <img src={"https://via.placeholder.com/150"} alt={category} />
-                    <h3>{category}</h3>
+                <Link key={index} to={categoryRoutes[category]} className="carousel-item">
+                <div className="image-wrapper">    
+                    
+                    <img src={categoryImages[category]} alt={category} />
+
+                    <h3 className="category">{category}</h3>
+                </div>
                 </Link>
             ))}
         </Carousel>

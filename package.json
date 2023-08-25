@@ -11,6 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@firebase/database": "^1.0.1",
+    "@firebase/firestore": "^4.1.0",
+    "axios": "^1.4.0",
+    "firebase": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",

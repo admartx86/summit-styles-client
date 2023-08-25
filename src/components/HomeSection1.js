@@ -1,11 +1,11 @@
 import React from 'react';
 import {Link } from 'react-router-dom';
-import backgroundImage from '../img/Section1.png';
+import backgroundImage from '../img/a.png';
 
 const HomeSection1 = () => {
     return(
         <section className='Section1' style={{ backgroundImage: `url(${backgroundImage})` }}>
-            <p> Summit Sale! <br></br> Save up to 30%! </p> 
+            <p>New Styles<br></br>for Fall 2023</p> 
             <Link to="/shop/new-featured">
                 <button>View Collection</button>
             </Link>

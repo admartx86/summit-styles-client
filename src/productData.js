@@ -116,7 +116,7 @@ const products = [
         name: "Product 11",
         description: "This is product 11",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id : 12,
@@ -125,7 +125,7 @@ const products = [
         name: "Product 12",
         description: "This is product 12",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id : 13,
@@ -134,7 +134,7 @@ const products = [
         name: "Product 13",
         description: "This is product 13",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id : 14,
@@ -143,7 +143,7 @@ const products = [
         name: "Product 14",
         description: "This is product 14",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id : 15,
@@ -152,7 +152,7 @@ const products = [
         name: "Product 15",
         description: "This is product 15",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id : 16,
@@ -161,7 +161,7 @@ const products = [
         name: "Product 16",
         description: "This is product 16",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id : 17,
@@ -170,7 +170,7 @@ const products = [
         name: "Product 17",
         description: "This is product 17",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id : 18,
@@ -179,7 +179,7 @@ const products = [
         name: "Product 18",
         description: "This is product 18",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id : 19,
@@ -188,7 +188,7 @@ const products = [
         name: "Product 19",
         description: "This is product 19",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id : 20,
@@ -197,7 +197,7 @@ const products = [
         name: "Product 20",
         description: "This is product 20",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id : 21,
@@ -206,7 +206,7 @@ const products = [
         name: "Product 21",
         description: "This is product 21",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id : 22,
@@ -215,7 +215,7 @@ const products = [
         name: "Product 22",
         description: "This is product 22",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id: 23,
@@ -224,7 +224,7 @@ const products = [
         name: "Product 23",
         description: "This is product 23",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id: 24,
@@ -233,7 +233,7 @@ const products = [
         name: "Product 24",
         description: "This is product 24",
         color: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
+        size: ["XS", "S", "M", "L", "XL", "XXL"]
     },
     {
         id: 25,

@@ -3,7 +3,7 @@ import ProductList from "./ProductList";
 
 const Kids = () => {
     return(
-        <ProductList category="kids" /> 
+        <ProductList category="kids'" /> 
     )
 }
 
