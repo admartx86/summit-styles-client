@@ -1,10 +1,12 @@
 import React from 'react';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SiteLogo = () => {
     return(
-        <h1 className='site-logo'>🏔 Summit Styles</h1>
-    )
+        <Link className='site-logo' to='/'>
+            <h1>🏔 Summit Styles</h1>
+        </Link>
+    );
 }
 
 export default SiteLogo;
