@@ -12,8 +12,9 @@ const MyAccount = () => {
         e.preventDefault();
         try {
             const res = await axios.post(
-            'http://172.233.221.154:3001/session/login',
-            { username: loginUsername, password: loginPassword }
+            'https://adammartinez.app:3001/login',
+            { username: loginUsername, password: loginPassword },
+            { withCredentials: true }
             );
             console.log('Login post request successful', res.data);
         } catch (error) {
@@ -25,8 +26,9 @@ const MyAccount = () => {
         e.preventDefault();
         try {
             const res = await axios.post(
-            'http://172.233.221.154:3001/session/register', 
-            { username: registerUsername, password: registerPassword }
+            'https://adammartinez.app:3001/register', 
+            { username: registerUsername, password: registerPassword },
+            { withCredentials: true }
             );
             console.log('Register post request successful', res.data);
         } catch (error) {

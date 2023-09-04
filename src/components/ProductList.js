@@ -9,7 +9,8 @@ const ProductList = ({ category }) => {
     useEffect(() => {
       const fetchData = async () => {
         // Fetch products
-        const res = await axios.get('http://172.233.221.154:3001/products');
+        const res = await axios.get('https://adammartinez.app:3001/products', { withCredentials: true });
+
   
         let productList = res.data;
   
