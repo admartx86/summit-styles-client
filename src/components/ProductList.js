@@ -9,7 +9,7 @@ const ProductList = ({ category }) => {
     useEffect(() => {
       const fetchData = async () => {
         // Fetch products
-        const res = await axios.get('https://adammartinez.app:3001/products', { withCredentials: true });
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/products`, { withCredentials: true });
 
   
         let productList = res.data;

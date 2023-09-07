@@ -1,3 +1,5 @@
-developer.txt
+dist
 node_modules
+.env
+developer.txt
 products.json
