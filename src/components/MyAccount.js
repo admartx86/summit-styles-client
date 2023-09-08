@@ -12,7 +12,7 @@ const MyAccount = () => {
         e.preventDefault();
         try {
             const res = await axios.post(
-            'https://adammartinez.app:3001/login',
+            `${process.env.REACT_APP_BACKEND_URL}/login`,
             { username: loginUsername, password: loginPassword },
             { withCredentials: true }
             );
@@ -26,7 +26,7 @@ const MyAccount = () => {
         e.preventDefault();
         try {
             const res = await axios.post(
-            'https://adammartinez.app:3001/register', 
+            `${process.env.REACT_APP_BACKEND_URL}/register`, 
             { username: registerUsername, password: registerPassword },
             { withCredentials: true }
             );

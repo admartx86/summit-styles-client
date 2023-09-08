@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Product from './Product';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const ProductList = ({ category }) => {
     const [products, setProducts] = useState([]);
-  
+    const navigate = useNavigate();
+
     useEffect(() => {
       const fetchData = async () => {
         // Fetch products
@@ -28,12 +29,14 @@ const ProductList = ({ category }) => {
   
     // ... rest of the code ...
     
-    
+    const navigateToProduct = (productId) => {
+      navigate(`/shop/product/${productId}`);
+    };
 
     return (
         <div className="product-list">
             {products.map(product => (
-                <div key={product.id}>
+                <div key={product.id} className="listed-product" onClick={() => navigateToProduct(product.id)}>
                     <Product
                         key={product.id}
                         productImage={product.image}
@@ -45,8 +48,15 @@ const ProductList = ({ category }) => {
                         productCategory={product.category}
                         //onAddToCart={...}  // Add respective functions
                         //onAddToWishlist={...} // Add respective functions
+                        renderAddToCart={false}
+                        renderAddToWishlist={false}
+                        renderColor={false}
+                        renderSize={false}
+                        renderQuantity={false}
+                        renderDescription={false}
                     />
-                    <Link to={`/shop/product/${product.id}`}>View Details</Link>
+
+                    {/* <Link to={`/shop/product/${product.id}`}>View Details</Link> */}
                 </div>
             ))}
         </div>
