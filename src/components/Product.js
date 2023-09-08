@@ -10,7 +10,13 @@ const Product = ({
     productSize,
     productQuantity,
     onAddToCart,
-    onAddToWishlist
+    onAddToWishlist,
+    renderAddToCart,
+    renderAddToWishlist,
+    renderColor,
+    renderSize,
+    renderQuantity,
+    renderDescription
 }) => {
     const [selectedColor, setSelectedColor] = useState(productColor && productColor.length > 0 ? productColor[0] : null);
     const [selectedSize, setSelectedSize] = useState(productSize && productSize.length > 0 ? productSize[0] : null);
@@ -19,8 +25,11 @@ const Product = ({
         <div className="product">
             <img src={productImage} alt={productName} />
             <h2>{productName}</h2>
+            {renderDescription ? (
             <p>{productDescription}</p>
+            ) : null}
             <p>{productPrice ? "$"+productPrice.toFixed(2) : 'N/A'}</p>
+            {renderColor ? (    
             <div>
                 <label>Color: </label>
                 <select value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)}>
@@ -31,6 +40,8 @@ const Product = ({
                     ))}
                 </select>
             </div>
+            ) : null}
+            {renderQuantity ? (
             <div>
                 <label>Quantity: </label>
                 <input
@@ -40,7 +51,10 @@ const Product = ({
                     onChange={(e) => setQuantity(e.target.value)}
                 />
             </div>
+            ) : null}   
             <div>
+                {renderSize ? (
+                <>
                 <label>Size: </label>
                 <select value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)}>
                     {productSize.map((size) => (
@@ -49,11 +63,17 @@ const Product = ({
                         </option>
                     ))}
                 </select>
+                </>
+                ) : null}
             </div>
+            {renderAddToCart ? (
             <button onClick={() => onAddToCart({productName, productPrice, quantity, selectedColor, selectedSize})}>
                 Add to Cart</button>
+            ) : null}
+            {renderAddToWishlist ? (
             <button onClick={() => onAddToWishlist({productName, productPrice, quantity, selectedColor, selectedSize})}>
                 Add to Wishlist</button>
+            ) : null}    
         </div>
     )
 }
