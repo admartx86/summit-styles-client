@@ -12,6 +12,8 @@
     font-family: 'Switzer-Regular';
     margin-left: 0px;
     margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 body {
@@ -29,15 +31,20 @@ a, a:visited, a:active, a:focus {
 header {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+    height: 100px;
+    
 }
+
+
 
 .site-logo {
     display: flex;
-    flex: 1;
-    align-items: flex-end;
-    justify-content: center;
+    /* flex: 1; */
+    align-items: center;
+    justify-content: left;
     max-width: 100%;
-    min-width: 50%;
     margin: 0px;
     padding: 0px;
 }
@@ -48,7 +55,7 @@ header {
     height: auto;
 }
   
-@media (min-width: 1024px) {
+/* @media (min-width: 768px) {
     .site-logo {
       flex-basis: 33.33%;
     }
@@ -57,25 +64,95 @@ header {
     }
   }
   
-  @media (max-width: 1023px) {
+  @media (max-width: 767px) {
     .site-logo {
       flex-basis: 66.66%;
     }
     .main-navigation {
       flex-basis: 33.33%;
     }
-  }
+  } */
 
 .main-navigation {
     display: flex;
-    flex: 2;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
+    /* flex: 2; */
+    align-items: flex-end;
+    justify-content: right;
+    max-width: 100%;
     gap: 20px;
-    font-size: xx-large;
+    font-size: x-large;
 }
 
+.menu-content,
+.menu-content a {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+}
+
+
+.hamburger-menu {
+    display: none; /* Initially hidden */
+    position: relative; /* Position relative to this */
+  }
+  
+  .hamburger-button {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items */
+    gap: 10px;
+    position: fixed;  /* Position fixed to the viewport */
+    top: 100px;  /* Explicitly set to the height of the header */
+    left: 0;  /* Start from the far left */
+    right: 0;  /* Go to the far right */
+    background-color: white;  /* Background to white */
+    z-index: 1000;  /* Above other content */
+    width: 100%;  /* Full width */
+    padding: 20px;
+  }
+  
+  .hamburger-menu-link, .main-navigation-link {
+    display: flex; /* Ensures elements within each Link are inline */
+    align-items: center; /* Aligns items vertically in the center */
+    white-space: nowrap; /* Prevents the text from wrapping to the next line */
+    padding: 10px;
+  }
+  
+  .hamburger-menu-link img, .main-navigation-link img {
+    margin-right: 10px; /* Adds some space between the image and the text */
+  }
+  
+  @media (max-width: 1380px) {
+    .main-navigation-link > p {
+        display: none; /* Hide the text */
+    }
+
+  }
+
+  @media (max-width: 975px) {
+    .hamburger-menu {
+      display: block; /* Show the menu */
+      justify-self: center;;
+      align-self: center;
+      padding: 20px;
+    }
+  
+    .main-navigation > a {
+      display: none; /* Hide regular links */
+    }
+  }
+  
+  
+  
 /* Home */
 
 .Section1, .Section3 {
