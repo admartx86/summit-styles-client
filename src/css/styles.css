@@ -216,19 +216,21 @@ header {
     font-size: clamp(2.5rem, 6vw, 5rem);
     font-weight: bold;
     margin: 20px;
+    margin-left: 50px;
     /* text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5); */
 }
 
-/* .category-carousel * {
-    border: solid 1px red;
-} */
+
+.category-carousel {
+    margin-bottom: 20px;
+}
 
 
 .carousel-header {
     margin-left: 50px;
     font-size: large;
     font-weight: bold;
-}b
+}
 
 .carousel-item {
     position: relative;
@@ -246,12 +248,23 @@ header {
     transform: translate(-50%, -50%);  /* Adjusts the text to be truly centered */
     color: white;  /* Makes the text color white so it stands out on the image */
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 2rem;
     background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark background for better readability */
     padding: 5px 10px;
     border-radius: 5px;
 }
 
+@media (max-width: 1200px) {
+    .category {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .category {
+        font-size: 1rem;
+    }
+}
 /*Shop*/
 
 
@@ -295,11 +308,16 @@ header {
 
 /*Footer*/
 
+footer * {
+ border: solid 1px red;
+}
+
 footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
+    gap: 20px;
     background-color: #ffffff;
 }
 
@@ -315,7 +333,7 @@ footer {
     flex: 1;
     flex-direction: column;
     align-items: flex-start;
-    width: 50%;
+    min-width: 50%;
 }
 
 .footer-links h3 {
@@ -344,6 +362,7 @@ footer {
     flex: 1;
     flex-direction: column;
     align-items: flex-start;
+    margin: 20 px;
 }
 
 .social-media-links img {
