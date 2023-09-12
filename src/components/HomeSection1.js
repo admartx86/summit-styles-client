@@ -7,6 +7,7 @@ const HomeSection1 = () => {
          <section className='Section1' style={{ 
             backgroundImage: `url(${backgroundImage})`, 
             backgroundPosition: 'center',
+            backgroundSize: 'cover',
             }}>
             <p>New Styles<br></br>for Fall 2023</p> 
             <Link to="/shop/new-featured">

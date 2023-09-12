@@ -46,6 +46,7 @@ const CategoryCarousel = () => {
 
     return (
         <div className="category-carousel">
+        <p>Shop by Category</p>
         <Carousel className="carousel"
             showThumbs={false}
             showStatus={false}

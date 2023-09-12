@@ -155,7 +155,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    max-height: 500px;
+    /* max-height: 700px; */
     
     /* other styles */
   }
@@ -170,7 +170,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    max-height: 700px;
+    /* max-height: 700px; */
 }
 
 /* .Section1 > img, .Section3 > img {
@@ -203,21 +203,36 @@ header {
     cursor: pointer;
     max-width: 100%;
     border: 2px solid #ffffff;
-    font-size: large;
+    font-size: x-large;
 }
 
 .Section1 button:hover, .Section3 button:hover {
     background-color: #4ca787;
 }
 
+.category-carousel p {
+    /* border: solid 1px red; */
+    color: #2A2A2A;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: bold;
+    margin: 20px;
+    /* text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5); */
+}
+
+/* .category-carousel * {
+    border: solid 1px red;
+} */
+
+
 .carousel-header {
     margin-left: 50px;
-    font-size: xx-large;
+    font-size: large;
     font-weight: bold;
-}
+}b
 
 .carousel-item {
     position: relative;
+   
 }
 
 .image-wrapper {
@@ -231,6 +246,7 @@ header {
     transform: translate(-50%, -50%);  /* Adjusts the text to be truly centered */
     color: white;  /* Makes the text color white so it stands out on the image */
     font-weight: bold;
+    font-size: 1rem;
     background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark background for better readability */
     padding: 5px 10px;
     border-radius: 5px;
