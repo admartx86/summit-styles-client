@@ -8,7 +8,7 @@ const SocialMediaLinks = () => {
     return(
         <section className='social-media-links'>
             <h3>
-                Follow us!
+                Follow us
             </h3>
             <div>
                 <a href='#' onClick={(e) => e.preventDefault()}><img src={twitterIcon} alt='Twitter'/></a>
