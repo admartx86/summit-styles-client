@@ -11,7 +11,7 @@ const HomeSection1 = () => {
             }}>
             <p>New Styles<br></br>for Fall 2023</p> 
             <Link to="/shop/new-featured">
-                <button>View Collection</button>
+                <button>View New & Featured</button>
             </Link>
         </section>
     )

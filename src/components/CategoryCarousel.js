@@ -46,7 +46,7 @@ const CategoryCarousel = () => {
 
     return (
         <div className="category-carousel">
-        <p>Shop by Category</p>
+         <p>Shop by Category</p>
         <Carousel className="carousel"
             showThumbs={false}
             showStatus={false}
@@ -54,8 +54,8 @@ const CategoryCarousel = () => {
             showIndicators={false}
             showArrows={true}
             autoPlay={true}
-            interval={6000}
-            transitionTime={2000}
+            interval={2000}
+            transitionTime={6000}
             centerMode={true}
             centerSlidePercentage={33.33}
             swipeable={true}
