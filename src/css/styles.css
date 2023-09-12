@@ -1,5 +1,11 @@
 /*All*/
 
+:root {
+    --fs-800: ;
+    --fs-1200: ;
+
+}
+
 @font-face {
     font-family: 'Switzer-Regular';
     src: url('../otffonts/Switzer-Regular.otf') format('opentype');
@@ -79,7 +85,7 @@ header {
     align-items: flex-end;
     justify-content: right;
     max-width: 100%;
-    gap: 20px;
+    gap: 5px;
     font-size: x-large;
 }
 
@@ -94,6 +100,9 @@ header {
   padding: 0;
 }
 
+/* header * {
+    border: solid 1px red;
+}; */
 
 .hamburger-menu {
     display: none; /* Initially hidden */
@@ -131,60 +140,70 @@ header {
     margin-right: 10px; /* Adds some space between the image and the text */
   }
   
-  @media (max-width: 1380px) {
-    .main-navigation-link > p {
-        display: none; /* Hide the text */
-    }
-
-  }
-
-  @media (max-width: 975px) {
-    .hamburger-menu {
-      display: block; /* Show the menu */
-      justify-self: center;;
-      align-self: center;
-      padding: 20px;
-    }
   
-    .main-navigation > a {
-      display: none; /* Hide regular links */
-    }
-  }
   
   
   
 /* Home */
 
-.Section1, .Section3 {
+.Section1 {
     display: flex;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    padding: 60px;
+    /* background-image: url('../img/a.png') !important; */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+    padding: 50px;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    height: 500px;
+    max-height: 500px;
+    
+    /* other styles */
+  }
+
+  
+.Section3 {
+    
+    display: flex;
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+    padding: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-height: 700px;
 }
+
+/* .Section1 > img, .Section3 > img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: left;
+} */
+
 
 .Section1 p, .Section3 p {
     color: #ffffff;
-    font-size: 5rem;
+    font-size: clamp(2.5rem, 6vw, 5rem);
     font-weight: bold;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
 }
 
+/* .Section1 *, .Section3 * {
+    border: red solid 1px;
+} */
+
 .Section1 button, .Section3 button {
     display: block;
     padding: 10px 15px;
+    margin: 20px 0px;
     background-color: #5dbea3;
     color: #fff;
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    width: 100%;
+    max-width: 100%;
     border: 2px solid #ffffff;
-    font-size: x-large;
+    font-size: large;
 }
 
 .Section1 button:hover, .Section3 button:hover {
@@ -219,22 +238,29 @@ header {
 
 /*Shop*/
 
+
+
+
+
+
+
 .product-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
 }
-  
-@media (min-width: 768px) {
+
+@media (min-width: 1200px) {
     .product-list {
-      grid-template-columns: repeat(auto-fill, minmax(33.33%, 1fr)); /* For 3 columns */
+      grid-template-columns: repeat(auto-fill, minmax(33.3%, 1fr)); /* For 3 columns */
     }
 }
-  
-@media (min-width: 1024px) {
-    .product-list {
-      grid-template-columns: repeat(auto-fill, minmax(24%, 1fr)); /* For 4 columns */
-    }
+ 
+
+@media (min-width: 800px) {
+.product-list {
+    grid-template-columns: repeat(auto-fill, minmax(24%, 1fr)); /* For 4 columns */
+}
 }
 
 .listed-product {
@@ -255,9 +281,17 @@ header {
 
 footer {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     padding: 20px 20px;
     background-color: #ffffff;
+}
+
+@media (max-width: 800px) {
+    footer {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .footer-links {
@@ -380,3 +414,23 @@ footer {
     margin-top: 0px;
     margin-bottom: 10px;
 }
+
+@media (max-width: 1200px) {
+    .main-navigation-link > p {
+        display: none; /* Hide the text */
+    }
+
+  }
+
+  @media (max-width: 800px) {
+    .hamburger-menu {
+      display: block; /* Show the menu */
+      justify-self: center;;
+      align-self: center;
+      padding: 20px;
+    }
+  
+    .main-navigation > a {
+      display: none; /* Hide regular links */
+    }
+  }
