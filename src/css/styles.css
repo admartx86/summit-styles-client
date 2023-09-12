@@ -309,11 +309,14 @@ header {
 /*Footer*/
 
 
+footer * {
+border: solid 1px red;
+}
 
 footer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     padding: 20px;
     gap: 20px;
     background-color: #ffffff;
@@ -331,7 +334,7 @@ footer {
     flex: 1;
     flex-direction: column;
     align-items: flex-start;
-    min-width: 50%;
+    max-width: 100%;
 }
 
 .footer-links h3 {
@@ -344,7 +347,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
+    max-width: 100%;
 }
 
 .footer-links a {
@@ -373,7 +376,7 @@ footer {
 
 .newsletter {
     display: flex;
-    flex: 2;
+    flex: 1;
     flex-direction: column;
     align-items: flex-start;
 }
