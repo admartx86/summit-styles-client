@@ -309,9 +309,7 @@ header {
 /*Footer*/
 
 
-footer * {
-border: solid 1px red;
-}
+
 
 footer {
     display: flex;
