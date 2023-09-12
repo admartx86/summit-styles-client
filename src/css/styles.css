@@ -96,6 +96,7 @@ header {
 }
 
 header {
+    position: relative;
   margin: 0;
   padding: 0;
 }
@@ -104,9 +105,17 @@ header {
     border: solid 1px red;
 }; */
 
+
+
+.submenu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .hamburger-menu {
-    display: none; /* Initially hidden */
-    position: relative; /* Position relative to this */
+    display: none;
+
   }
   
   .hamburger-button {
@@ -115,30 +124,55 @@ header {
   }
   
   .menu-content {
+    position: absolute;
+    top: 100px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center items */
+    align-items: flex-start;
     gap: 10px;
-    position: fixed;  /* Position fixed to the viewport */
-    top: 100px;  /* Explicitly set to the height of the header */
-    left: 0;  /* Start from the far left */
-    right: 0;  /* Go to the far right */
-    background-color: white;  /* Background to white */
-    z-index: 1000;  /* Above other content */
-    width: 100%;  /* Full width */
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1000;
+    width: 100%;
     padding: 20px;
   }
   
+  .hamburger-menu-link:hover, .submenu-content:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+
   .hamburger-menu-link, .main-navigation-link {
-    display: flex; /* Ensures elements within each Link are inline */
-    align-items: center; /* Aligns items vertically in the center */
-    white-space: nowrap; /* Prevents the text from wrapping to the next line */
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
     padding: 10px;
   }
   
   .hamburger-menu-link img, .main-navigation-link img {
-    margin-right: 10px; /* Adds some space between the image and the text */
+    margin-right: 10px;
   }
+ 
+  .hamburger-menu-link div {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .shop-button {
+    border: none;
+    background: none;
+    font-size: inherit;
+    text-align: left;
+    padding: 0px;
+}
+
+  .submenu-content {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  
   
   
   
