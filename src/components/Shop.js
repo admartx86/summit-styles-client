@@ -24,13 +24,13 @@ const Shop = () => {
     return(
         <div>
 
-            <nav>
-                <Link to="/shop/sale">Sale</Link>
-                <Link to="/shop/new-featured">New & Featured</Link>
-                <Link to="/shop/womens">Women's</Link>
-                <Link to="/shop/mens">Men's</Link>
-                <Link to="/shop/kids">Kids</Link>
-                <Link to="/shop/bags-gear">Bags & Gear</Link>
+            <nav className='shop-nav'>
+                <Link to="/shop/sale" className='shop-nav-link'>Sale</Link>
+                <Link to="/shop/new-featured" className='shop-nav-link'>New & Featured</Link>
+                <Link to="/shop/womens" className='shop-nav-link'>Women's</Link>
+                <Link to="/shop/mens" className='shop-nav-link'>Men's</Link>
+                <Link to="/shop/kids" className='shop-nav-link'>Kids</Link>
+                <Link to="/shop/bags-gear" className='shop-nav-link'>Bags & Gear</Link>
             </nav>
             <Routes>
                 <Route path="/" element={<Redirect to="sale" />} />

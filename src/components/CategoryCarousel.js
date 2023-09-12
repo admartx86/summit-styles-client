@@ -50,12 +50,12 @@ const CategoryCarousel = () => {
         <Carousel className="carousel"
             showThumbs={false}
             showStatus={false}
-            infiniteLoop={true}
+            infiniteLoop={false}
             showIndicators={false}
             showArrows={true}
             autoPlay={true}
-            interval={2000}
-            transitionTime={6000}
+            interval={3000}
+            transitionTime={2000}
             centerMode={true}
             centerSlidePercentage={33.33}
             swipeable={true}

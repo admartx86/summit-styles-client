@@ -3,7 +3,10 @@ import ProductList from "./ProductList";
 
 const NewFeatured = () => {
     return(
-        <ProductList category="new-and-featured" />
+        <div>
+            <h1 className='shop-title'>New & Featured</h1>
+            <ProductList category="new-and-featured" />
+        </div>
     );
 }
 

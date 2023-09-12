@@ -3,7 +3,10 @@ import ProductList from './ProductList';
 
 const Sale = () => {
     return (
-        <ProductList category="sale" /> 
+        <div>
+            <h1 className='shop-title'>Sale</h1>
+            <ProductList category="sale" /> 
+        </div>
     );
 }
 

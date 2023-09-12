@@ -3,7 +3,10 @@ import ProductList from "./ProductList";
 
 const Kids = () => {
     return(
-        <ProductList category="kids'" /> 
+        <div>
+            <h1 className="shop-title">Kids</h1>
+            <ProductList category="kids'" /> 
+        </div>
     );
 }
 

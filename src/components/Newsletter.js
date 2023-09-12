@@ -12,7 +12,7 @@ const Newsletter = () => {
 
     return(
         <section className="newsletter">
-            <h3>Join the Summit Club!</h3>
+            <h3>Join the Summit Club</h3>
             <form onSubmit={handleSubmit}>
             <p>Subscribe to our newsletter for member-exclusive news and discounts!</p>
                 <input 
