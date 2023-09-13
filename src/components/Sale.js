@@ -10,4 +10,4 @@ const Sale = () => {
     );
 }
 
-export default Sale;
+    export default Sale;
