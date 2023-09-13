@@ -1,94 +1,115 @@
 import React, { useState } from 'react';
 
 const Product = ({
-    productImage,
-    productCategory,
-    productName,
-    productDescription,
-    productPrice,
-    productColor,
-    productSize,
-    productQuantity,
-    onAddToCart,
-    onAddToWishlist,
-    renderAddToCart,
-    renderAddToWishlist,
-    renderColor,
-    renderSize,
-    renderQuantity,
-    renderDescription
+  productImage,
+  productName,
+  productDescription,
+  productPrice,
+  productColor,
+  productSize,
+  onAddToCart,
+  onAddToWishlist,
+  renderDescription,
+  renderColor,
+  renderSize,
+  renderAddToCart,
+  renderAddToWishlist,
+  renderQuantity
 }) => {
-    const [selectedColor, setSelectedColor] = useState(productColor && productColor.length > 0 ? productColor[0] : null);
-    const [selectedSize, setSelectedSize] = useState(productSize && productSize.length > 0 ? productSize[0] : null);
-    const [quantity, setQuantity] = useState(1);
-    return(
-        <div className="product">
-            <img src={productImage} alt={productName} />
-            <div className="product-details">
-                <h2>{productName}</h2>
-                {renderDescription ? (
-                <p>{productDescription}</p>
-                ) : null}
-                <p>{productPrice ? "$"+productPrice.toFixed(2) : 'N/A'}</p>
-                {renderColor ? (    
-                <div>
-                    <label>Color: </label>
-                    <select value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)}>
-                        {productColor.map((color) => (
-                            <option key={color} value={color}>
-                                {color}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                ) : null}
-                {renderQuantity ? (
-                <div>
-                    <label>Quantity: </label>
-                    <input
-                        type="number"
-                        min="1"
-                        value={quantity}
-                        onChange={(e) => setQuantity(e.target.value)}
-                    />
-                </div>
-                ) : null}   
-                <div>
-                    {renderSize ? (
-                    <>
-                    <label>Size: </label>
-                    <select value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)}>
-                        {productSize.map((size) => (
-                            <option key={size} value={size}>
-                                {size}
-                            </option>
-                        ))}
-                    </select>
-                    </>
-                    ) : null}
-                </div>
-            
+  const [selectedColor, setSelectedColor] = useState(productColor && productColor.length > 0 ? productColor[0] : null);
+  const [selectedSize, setSelectedSize] = useState(productSize && productSize.length > 0 ? productSize[0] : null);
+  const [quantity, setQuantity] = useState(1);
+
+  return (
+    <div className="product">
+      <img src={productImage} alt={productName} />
+      <div className="product-details">
+        <h2 className='product-name'>{productName}</h2>
+        {renderDescription ? (<p classname='product-description'>{productDescription}</p>) : null}
+        {productPrice ? (<p className='product-price'>{`$${productPrice.toFixed(2)}`}</p>) : 'N/A'}
+        
+        {renderColor ? (
+  <div className='product-color'>
+    {productColor ? <label>Color: </label> : null}
+    {productColor ? (
+      <select value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)}>
+        {productColor.map((color) => (
+          <option key={color} value={color}>
+            {color}
+          </option>
+        ))}
+      </select>
+    ) : null}
+  </div>
+) : null}
+
+
+        
+
+        <div className='product-size'>
+          {renderSize ? (
+            <>
+              <label>Size: </label>
+              <select value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)}>
+                {productSize.map((size) => (
+                  <option key={size} value={size}>
+                    {size}
+                  </option>
+                ))}
+              </select>
+            </>
+          ) : null}
+        </div>
+        
+        {renderQuantity ? (
+          <div className='product-quantity'>
+            <label>Quantity: </label>
+            <input
+              type="number"
+              min="1"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+          </div>
+        ) : null}
+
+{/* {renderQuantity ? (
+  <div className="product-quantity">
+    <label>Quantity: </label>
+    <button onClick={() => setQuantity(quantity - 1)} disabled={quantity <= 1}>-</button>
+    <span> {quantity} </span>
+    <button onClick={() => setQuantity(quantity + 1)}>+</button>
+  </div>
+) : null} */}
+
+
+        <div className='product-buttons'>
             {renderAddToCart ? (
             <button onClick={() => onAddToCart({productName, productPrice, quantity, selectedColor, selectedSize})}>
-                Add to Cart</button>
+                Add to Cart
+            </button>
             ) : null}
+
             {renderAddToWishlist ? (
             <button onClick={() => onAddToWishlist({productName, productPrice, quantity, selectedColor, selectedSize})}>
-                Add to Wishlist</button>
-            ) : null}    
-            </div>
+                Add to Favorites
+            </button>
+            ) : null}
         </div>
-    )
-}
 
-export default Product
+      </div>
+    </div>
+  );
+};
+
+export default Product;
 
 Product.defaultProps = {
-    productImage: "https://via.placeholder.com/150",
-    productName: "Default Product Name",
-    productDescription: "Default Product Description",
-    productColor: ["Black", "Blue", "Gray", "Green", "Red", "White"],
-    productSize: ["XS", "S", "M", "L", "XL", "XXL"],
-    productQuantity: 1,
-    productPrice: 36.12
-}
+  productImage: "https://via.placeholder.com/150",
+  productName: "Default Product Name",
+  productDescription: "Default Product Description",
+  productColor: ["Black", "Blue", "Gray", "Green", "Red", "White"],
+  productSize: ["XS", "S", "M", "L", "XL", "XXL"],
+  productQuantity: 1,
+  productPrice: 36.12
+};
