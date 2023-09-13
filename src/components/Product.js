@@ -24,48 +24,50 @@ const Product = ({
     return(
         <div className="product">
             <img src={productImage} alt={productName} />
-            <h2>{productName}</h2>
-            {renderDescription ? (
-            <p>{productDescription}</p>
-            ) : null}
-            <p>{productPrice ? "$"+productPrice.toFixed(2) : 'N/A'}</p>
-            {renderColor ? (    
-            <div>
-                <label>Color: </label>
-                <select value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)}>
-                    {productColor.map((color) => (
-                        <option key={color} value={color}>
-                            {color}
-                        </option>
-                    ))}
-                </select>
-            </div>
-            ) : null}
-            {renderQuantity ? (
-            <div>
-                <label>Quantity: </label>
-                <input
-                    type="number"
-                    min="1"
-                    value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
-                />
-            </div>
-            ) : null}   
-            <div>
-                {renderSize ? (
-                <>
-                <label>Size: </label>
-                <select value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)}>
-                    {productSize.map((size) => (
-                        <option key={size} value={size}>
-                            {size}
-                        </option>
-                    ))}
-                </select>
-                </>
+            <div className="product-details">
+                <h2>{productName}</h2>
+                {renderDescription ? (
+                <p>{productDescription}</p>
                 ) : null}
-            </div>
+                <p>{productPrice ? "$"+productPrice.toFixed(2) : 'N/A'}</p>
+                {renderColor ? (    
+                <div>
+                    <label>Color: </label>
+                    <select value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)}>
+                        {productColor.map((color) => (
+                            <option key={color} value={color}>
+                                {color}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                ) : null}
+                {renderQuantity ? (
+                <div>
+                    <label>Quantity: </label>
+                    <input
+                        type="number"
+                        min="1"
+                        value={quantity}
+                        onChange={(e) => setQuantity(e.target.value)}
+                    />
+                </div>
+                ) : null}   
+                <div>
+                    {renderSize ? (
+                    <>
+                    <label>Size: </label>
+                    <select value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)}>
+                        {productSize.map((size) => (
+                            <option key={size} value={size}>
+                                {size}
+                            </option>
+                        ))}
+                    </select>
+                    </>
+                    ) : null}
+                </div>
+            
             {renderAddToCart ? (
             <button onClick={() => onAddToCart({productName, productPrice, quantity, selectedColor, selectedSize})}>
                 Add to Cart</button>
@@ -74,6 +76,7 @@ const Product = ({
             <button onClick={() => onAddToWishlist({productName, productPrice, quantity, selectedColor, selectedSize})}>
                 Add to Wishlist</button>
             ) : null}    
+            </div>
         </div>
     )
 }
@@ -82,10 +85,10 @@ export default Product
 
 Product.defaultProps = {
     productImage: "https://via.placeholder.com/150",
-    productName: "Product Name",
-    productDescription: "Product Description",
+    productName: "Default Product Name",
+    productDescription: "Default Product Description",
     productColor: ["Black", "Blue", "Gray", "Green", "Red", "White"],
     productSize: ["XS", "S", "M", "L", "XL", "XXL"],
     productQuantity: 1,
-    productPrice: 19.99
+    productPrice: 36.12
 }
