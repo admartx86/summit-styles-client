@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Product = ({
   productImage,
@@ -7,7 +8,7 @@ const Product = ({
   productPrice,
   productColor,
   productSize,
-  onAddToCart,
+  // onAddToCart,
   onAddToWishlist,
   renderDescription,
   renderColor,
@@ -20,12 +21,30 @@ const Product = ({
   const [selectedSize, setSelectedSize] = useState(productSize && productSize.length > 0 ? productSize[0] : null);
   const [quantity, setQuantity] = useState(1);
 
+  const onAddToCart = async (productDetails) => {
+    // Server-side cart logic
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/add-to-cart`,
+        { item: productDetails },
+        { withCredentials: true }
+      );
+      
+      if (response.status === 200) {
+        alert("Item successfully added to cart.");
+      }
+    } catch (error) {
+      console.error("There was an error adding the item to the cart:", error);
+    }
+  };
+  
+
   return (
     <div className="product">
       <img src={productImage} alt={productName} />
       <div className="product-details">
         <h2 className='product-name'>{productName}</h2>
-        {renderDescription ? (<p classname='product-description'>{productDescription}</p>) : null}
+        {renderDescription ? (<p className='product-description'>{productDescription}</p>) : null}
         {productPrice ? (<p className='product-price'>{`$${productPrice.toFixed(2)}`}</p>) : 'N/A'}
         
         {renderColor ? (
@@ -85,13 +104,13 @@ const Product = ({
 
         <div className='product-buttons'>
             {renderAddToCart ? (
-            <button onClick={() => onAddToCart({productName, productPrice, quantity, selectedColor, selectedSize})}>
+            <button onClick={() => onAddToCart({productImage, productName, productPrice, quantity, selectedColor, selectedSize})}>
                 Add to Cart
             </button>
             ) : null}
 
             {renderAddToWishlist ? (
-            <button onClick={() => onAddToWishlist({productName, productPrice, quantity, selectedColor, selectedSize})}>
+            <button onClick={() => onAddToWishlist({productImage, productName, productPrice, quantity, selectedColor, selectedSize})}>
                 Add to Favorites
             </button>
             ) : null}

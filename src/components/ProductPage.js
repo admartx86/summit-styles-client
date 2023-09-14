@@ -35,6 +35,7 @@ const ProductPage = () => {
     <div>
       <div className="product-page">
         <Product
+          
           key={product.id}
           productImage={product.image}
           productName={product.name}
