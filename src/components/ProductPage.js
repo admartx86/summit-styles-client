@@ -16,6 +16,7 @@ const ProductPage = () => {
       try {
         const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/products/${productId}`, { withCredentials: true });
         setProduct(res.data);
+        console.log("Product:", res.data);
       } catch (error) {
         console.error("There was an error fetching the data", error);
       }
@@ -37,6 +38,7 @@ const ProductPage = () => {
         <Product
           
           key={product.id}
+          productId={productId}
           productImage={product.image}
           productName={product.name}
           productDescription={product.description}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Product = ({
+  productId,
   productImage,
   productName,
   productDescription,
@@ -104,9 +105,9 @@ const Product = ({
 
         <div className='product-buttons'>
             {renderAddToCart ? (
-            <button onClick={() => onAddToCart({productImage, productName, productPrice, quantity, selectedColor, selectedSize})}>
-                Add to Cart
-            </button>
+            <button onClick={() => onAddToCart({productId, productImage, productName, productPrice, quantity, selectedColor, selectedSize})}>
+            Add to Cart
+          </button>          
             ) : null}
 
             {renderAddToWishlist ? (
