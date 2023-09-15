@@ -34,9 +34,9 @@ const ShoppingCart = ({ removeFromCart }) => {
           {Array.isArray(cartItems) && cartItems.map((item, index) => (
             <div className="cart-item">
             <li key={index}>
-            <img src={item.productImage} alt={item.productName} width="50" height="50" />
-              <span>{item.productName}</span>
-              <span>{` - $${item.productPrice} x ${item.quantity}`}</span>
+            <img src={item.image} alt={item.name} width="50" height="50" />
+              <span>{item.name}</span>
+              <span>{` - $${item.price} x ${item.quantity}`}</span>
               <button onClick={() => removeFromCart(index)}>Remove</button>
             </li>
             </div>
