@@ -48,7 +48,7 @@ const HamburgerMenu = () => {
             <button onClick={toggleShopMenu} className="hamburger-menu-link shop-button">
             <img src="https://summit-styles.s3.us-east-2.amazonaws.com/shop-32-px.png" alt=''/><p>Shop</p>
             </button>
-            <Link to="/wishlist" className="hamburger-menu-link" onClick={closeMenus}>
+            <Link to="/favorites" className="hamburger-menu-link" onClick={closeMenus}>
             <img src="https://summit-styles.s3.us-east-2.amazonaws.com/heart-32-px.png" alt='' /><p>Favorites</p>
             </Link>
             <Link to="/cart" className="hamburger-menu-link" onClick={closeMenus}>

@@ -49,7 +49,8 @@ const ProductPage = () => {
           //onAddToCart={...}  // Add respective functions
           //onAddToWishlist={...} // Add respective functions
           renderAddToCart={true}
-          renderAddToWishlist={true}
+          renderAddToFavorites={true}
+          renderRemoveFromFavorites={false}
           renderColor={renderColor}
           renderSize={renderSize}
           renderQuantity={true}
