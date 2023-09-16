@@ -18,10 +18,15 @@ import MyAccount from './MyAccount';
 import FooterLinks from './FooterLinks';
 import SocialMediaLinks from './SocialMediaLinks';
 import Newsletter from './Newsletter';
+import ScrollToTop from './ScrollToTop';
 
 const App = () => {
+  
+
+  
   return (
     <div>
+       <ScrollToTop />
       <header>
         <SiteLogo />
         <MainNavigation />
