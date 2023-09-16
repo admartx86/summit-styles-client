@@ -1,8 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const ShoppingCart = ({ removeFromCart }) => {
+const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState([]);
+
+  const removeFromCart = async (productDetails) => {
+    if (!productDetails.productId || !productDetails.size) {
+      alert('Invalid product details.');
+      return;
+    }
+    try {
+      const response = await axios.delete(
+        `${process.env.REACT_APP_BACKEND_URL}/remove-from-cart/${productDetails.productId}/${productDetails.size}`,
+        { withCredentials: true }
+      );
+      if (response.status === 200) {
+        alert("Item successfully removed from cart.");
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error("There was an error removing the item from cart:", error);
+    }
+    
+  }; 
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-cart` , { withCredentials: true })
@@ -37,7 +57,8 @@ const ShoppingCart = ({ removeFromCart }) => {
             <img src={item.image} alt={item.name} width="50" height="50" />
               <span>{item.name}</span>
               <span>{` - $${item.price} x ${item.quantity}`}</span>
-              <button onClick={() => removeFromCart(index)}>Remove</button>
+              <button onClick={() => removeFromCart({productId: item.id, size: item.size})}>Remove</button>
+
             </li>
             </div>
           ))}
