@@ -9,7 +9,7 @@ import MainNavigation from './MainNavigation';
 //<Routes>
 import Home from './Home';
 import Shop from './Shop';
-import Wishlist from './Wishlist';
+import Favorites from './Favorites';
 import ShoppingCart from './ShoppingCart';
 import About from './About';
 import MyAccount from './MyAccount';
@@ -30,7 +30,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/shop/*' element={<Shop />} />
         <Route path='/account' element={<MyAccount />} />
-        <Route path='/wishlist' element={<Wishlist />} />
+        <Route path='/favorites' element={<Favorites />} />
         <Route path='/cart' element={<ShoppingCart />} />
         <Route path='/about' element={<About />} />
       </Routes>

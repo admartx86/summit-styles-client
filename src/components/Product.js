@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
 const Product = ({
   productId,
   productImage,
@@ -9,13 +10,12 @@ const Product = ({
   productPrice,
   productColor,
   productSize,
-  // onAddToCart,
-  onAddToWishlist,
   renderDescription,
   renderColor,
   renderSize,
   renderAddToCart,
-  renderAddToWishlist,
+  renderAddToFavorites,
+  renderRemoveFromFavorites,
   renderQuantity
 }) => {
   const [selectedColor, setSelectedColor] = useState(productColor && productColor.length > 0 ? productColor[0] : null);
@@ -39,6 +39,41 @@ const Product = ({
     }
   };
   
+  const onAddToFavorites = async (productDetails) => {
+    try {
+      const response = await axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/add-to-favorites`,
+      { item: productDetails },
+      { withCredentials: true }
+      );  
+      if (response.status === 200) {
+        
+        alert("Item successfully added to favorites.");
+      }
+    }
+    catch (error) {
+      console.error("There was an error adding the item to favorites:", error);
+    }
+  };
+
+  const onRemoveFromFavorites = async (productDetails) => {
+    try {
+      const response = await axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/remove-from-favorites`,
+      { item: productDetails },
+      { withCredentials: true }
+      );  
+      if (response.status === 200) {
+        
+        alert("Item successfully removed from favorites.");
+      }
+    }
+  
+    catch (error) {
+      console.error("There was an error removing the item from favorites:", error);
+    }
+  };
+
 
   return (
     <div className="product">
@@ -110,11 +145,18 @@ const Product = ({
           </button>          
             ) : null}
 
-            {renderAddToWishlist ? (
-            <button onClick={() => onAddToWishlist({productImage, productName, productPrice, quantity, selectedColor, selectedSize})}>
+            {renderAddToFavorites ? (
+            <button onClick={() => onAddToFavorites({productId, productImage, productName, productPrice, quantity, selectedColor, selectedSize})}>
                 Add to Favorites
             </button>
             ) : null}
+            
+            {renderRemoveFromFavorites ? (
+            <button onClick={() => onRemoveFromFavorites({productId, productImage, productName, productPrice, quantity, selectedColor, selectedSize})}>
+                Remove from Favorites
+            </button>
+            ) : null}
+
         </div>
 
       </div>
