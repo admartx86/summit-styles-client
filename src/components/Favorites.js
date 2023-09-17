@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { onRemoveFromFavorites } from './RemoveFromFavorites';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Favorites = () => {
   // Define state to hold favorite items
@@ -34,22 +35,27 @@ const Favorites = () => {
       {Array.isArray(favoriteItems) && favoriteItems.length === 0 ? (
         <p> You have no favorites.</p>
       ) : (
-        <ul>
+        <div>
           {Array.isArray(favoriteItems) && favoriteItems.map((item, index) => (
             console.log('Current Item:', item),
             <div className="favorite-item" key={index}>
+              <Link to={`/shop/product/${item.id}`}>
+              <div className="link-to-favorite-item">
+              
               <img src={item.image} alt={item.name} width="50" height="50" />
               <div>{item.name}</div>
               <div>{`$${item.price}`}</div>
-             
+              </div>
+              </Link>
               <button onClick={() => {
-    onRemoveFromFavorites({productId: item.id});
-    setRefetch(!refetch);
-}}>Remove</button>
+                onRemoveFromFavorites({productId: item.id});
+                setRefetch(!refetch);
+                }}>Remove
+                </button>
 
             </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

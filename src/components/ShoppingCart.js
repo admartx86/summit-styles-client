@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -38,8 +39,9 @@ const ShoppingCart = () => {
   }, []);
 
   const calculateTotal = () => {
+    console.log("Cart Items: ", cartItems);
     return cartItems.reduce(
-      (acc, item) => acc + item.productPrice * item.quantity,
+      (acc, item) => acc + item.price * item.quantity,
       0
     ).toFixed(2);
   };
@@ -50,19 +52,23 @@ const ShoppingCart = () => {
       {Array.isArray(cartItems) && cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <ul>
+        <div>
           {Array.isArray(cartItems) && cartItems.map((item, index) => (
-            <div className="cart-item">
-            <li key={index}>
-            <img src={item.image} alt={item.name} width="50" height="50" />
-              <span>{item.name}</span>
-              <span>{` - $${item.price} x ${item.quantity}`}</span>
+            <div className="cart-item" key={index}>
+              <Link to={`/shop/product/${item.id}`}>
+             
+              <img src={item.image} alt={item.name} width="50" height="50" />
+              <div>{item.name}</div>
+              <div>{item.size}</div>
+              <div>{` - $${item.price} x ${item.quantity}`}</div>
+             
+              </Link>
               <button onClick={() => removeFromCart({productId: item.id, size: item.size})}>Remove</button>
 
-            </li>
+            
             </div>
           ))}
-        </ul>
+        </div>
       )}
       <h2>Total: ${calculateTotal()}</h2>
     </div>
