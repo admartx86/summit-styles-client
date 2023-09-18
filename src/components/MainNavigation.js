@@ -28,15 +28,17 @@ const MainNavigation = () => {
     };
 
     return (
-        <div>
-            <div>
+        
+            
+            <nav className="main-navigation">
+            <div className="hello-user">
                 {username ? (
-                    <>
-                        Hello, {username}
-                    </>
+                    <div>
+                        <Link to="/account">Hello, <span>{username}</span></Link>
+                    </div>
                 ) : null }
             </div>
-            <nav className="main-navigation">
+            <div className="main-navigation-links">
                 <Link to="/" className="main-navigation-link" >
                     <img src="https://summit-styles.s3.us-east-2.amazonaws.com/home-32-px.png" alt='' />
                     <p>Home</p>
@@ -53,21 +55,19 @@ const MainNavigation = () => {
                     <img src="https://summit-styles.s3.us-east-2.amazonaws.com/cart-32-px.png" alt='' />
                     <p>Cart</p>
                 </Link>
-                {username ? (
-    <Link to="/logout" onClick={handleLogout} className="main-navigation-link">
-        <img src="https://summit-styles.s3.us-east-2.amazonaws.com/user-32-px.png" alt='' />
-        <p>Sign Out</p>
-    </Link>
-) : (
-    <Link to="/account" className="main-navigation-link">
-        <img src="https://summit-styles.s3.us-east-2.amazonaws.com/user-32-px.png" alt='' />
-        <p>Sign In / Register</p>
-    </Link>
-)}
+                <Link to="/account" className="main-navigation-link" >
+                    <img src="https://summit-styles.s3.us-east-2.amazonaws.com/user-32-px.png" alt='' />
+                    { username ? (
+                    <p>Account</p>
+                    ) : (
+                        <p>Sign In / Register</p>
+                    )}
+                </Link>
+            </div>
 
                 <HamburgerMenu />
             </nav>
-        </div>
+        
     );
 }
 

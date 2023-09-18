@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from "react-router-dom";
+import UserContext from '../contexts/UserContext';
+import axios from 'axios';
 
 const HamburgerMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  
+    const { username, setUsername } = useContext(UserContext); // Destructure setUsername
     // useEffect(() => {
     //   const handleResize = () => {
     //     if (window.innerWidth > 975 && isOpen) {
@@ -36,6 +38,24 @@ const HamburgerMenu = () => {
       setIsShopMenuOpen(false);
     };
 
+    const handleLogout = async (e) => {
+      e.preventDefault();
+      try {
+          const res = await axios.post(
+              `${process.env.REACT_APP_BACKEND_URL}/logout`,
+              {},
+              { withCredentials: true }
+          );
+          console.log('Logout post request successful', res.data);
+          setUsername(null); // Reset the username in global context
+          navigate("/");
+          
+          
+      } catch (error) {
+          console.log('Logout post request failed', error);
+      }
+  };
+
     return (
       <div className="hamburger-menu">
         <button onClick={toggleMenu} className="hamburger-button">
@@ -54,9 +74,14 @@ const HamburgerMenu = () => {
             <Link to="/cart" className="hamburger-menu-link" onClick={closeMenus}>
             <img src="https://summit-styles.s3.us-east-2.amazonaws.com/cart-32-px.png" alt='' /><p>Cart</p>
             </Link>
-            <Link to="/account" className="hamburger-menu-link" onClick={closeMenus}>
-            <img src="https://summit-styles.s3.us-east-2.amazonaws.com/user-32-px.png" alt='' /><p>My Account</p>
-            </Link>
+            <Link to="/account" className="hamburger-menu-link" onClick={closeMenus} >
+                    <img src="https://summit-styles.s3.us-east-2.amazonaws.com/user-32-px.png" alt='' />
+                    { username ? (
+                    <p>Account</p>
+                    ) : (
+                        <p>Sign In / Register</p>
+                    )}
+                </Link>
           </div>
         )}
         {isShopMenuOpen && (
