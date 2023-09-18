@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 const Favorites = () => {
   // Define state to hold favorite items
   const [favoriteItems, setFavoriteItems] = useState([]);
-  const [refetch, setRefetch] = useState(false);
 
 
   
@@ -27,13 +26,13 @@ const Favorites = () => {
       }
     };
     fetchFavorites();
-  }, [refetch]);
+  }, []);
 
   return (
     <div className="favorites">
       <h1>Your Favorites</h1>
       {Array.isArray(favoriteItems) && favoriteItems.length === 0 ? (
-        <p> You have no favorites.</p>
+        <p>Add favorites to see them here.</p>
       ) : (
         <div>
           {Array.isArray(favoriteItems) && favoriteItems.map((item, index) => (
@@ -49,7 +48,6 @@ const Favorites = () => {
               </Link>
               <button onClick={() => {
                 onRemoveFromFavorites({productId: item.id});
-                setRefetch(!refetch);
                 }}>Remove
                 </button>
 

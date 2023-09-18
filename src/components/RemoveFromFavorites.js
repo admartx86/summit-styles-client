@@ -7,7 +7,6 @@ export const onRemoveFromFavorites = async (productDetails) => {
         { withCredentials: true }
       );
       if (response.status === 200) {
-        alert("Item successfully removed from favorites.");
         window.location.reload();
       }
     } catch (error) {

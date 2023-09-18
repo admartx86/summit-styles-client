@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
+
+
 const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState([]);
 
+  
   const removeFromCart = async (productDetails) => {
     if (!productDetails.productId || !productDetails.size) {
       alert('Invalid product details.');
@@ -16,7 +19,6 @@ const ShoppingCart = () => {
         { withCredentials: true }
       );
       if (response.status === 200) {
-        alert("Item successfully removed from cart.");
         window.location.reload();
       }
     } catch (error) {
@@ -36,8 +38,11 @@ const ShoppingCart = () => {
       .catch(error => {
         console.error("Error fetching cart items:", error);
       });
+     
   }, []);
 
+ 
+  
   const calculateTotal = () => {
     console.log("Cart Items: ", cartItems);
     return cartItems.reduce(
@@ -46,9 +51,17 @@ const ShoppingCart = () => {
     ).toFixed(2);
   };
 
+  const calculateTotalItems = () => {
+    console.log("Cart Items: ", cartItems);
+    return cartItems.reduce(
+      (acc, item) => acc + item.quantity,
+      0
+    );
+  };
+
   return (
     <div className="cart">
-      <h1>Your Shopping Cart</h1>
+      <h1>Your Cart</h1>
       {Array.isArray(cartItems) && cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
@@ -60,17 +73,26 @@ const ShoppingCart = () => {
               <img src={item.image} alt={item.name} width="50" height="50" />
               <div>{item.name}</div>
               <div>{item.size}</div>
-              <div>{` - $${item.price} x ${item.quantity}`}</div>
+              <div>{`$${item.price} x ${item.quantity}`}</div>
              
               </Link>
-              <button onClick={() => removeFromCart({productId: item.id, size: item.size})}>Remove</button>
+              
+              {/* <button onClick={() => removeFromCart({productId: item.id, size: item.size})}>Remove</button> */}
+              <a href="#" onClick={(e) => {
+                e.preventDefault();
+                removeFromCart({productId: item.id, size: item.size});
+              }}>Remove from Cart</a>
 
-            
             </div>
           ))}
         </div>
       )}
-      <h2>Total: ${calculateTotal()}</h2>
+      {calculateTotalItems() > 0 ? (
+      <div>
+      <h2>Subtotal ({calculateTotalItems()} Item{calculateTotalItems() !== 1 ? 's' : null}) ${calculateTotal()}</h2>
+            <button>Proceed to checkout</button>
+      </div>
+      ) : null}
     </div>
   );
 };

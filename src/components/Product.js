@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { onRemoveFromFavorites } from './RemoveFromFavorites';
 
 const Product = ({
   productId,
@@ -22,6 +22,7 @@ const Product = ({
   const [selectedSize, setSelectedSize] = useState(productSize && productSize.length > 0 ? productSize[0] : null);
   const [quantity, setQuantity] = useState(1);
 
+  
   const onAddToCart = async (productDetails) => {
     // Server-side cart logic
     try {
@@ -47,8 +48,9 @@ const Product = ({
       { withCredentials: true }
       );  
       if (response.status === 200) {
-        
-        alert("Item successfully added to favorites.");
+        localStorage.setItem('scrollPosition', window.scrollY);
+        window.location.reload();
+       
       }
     }
     catch (error) {
@@ -56,23 +58,23 @@ const Product = ({
     }
   };
 
-  const onRemoveFromFavorites = async (productDetails) => {
-    try {
-      const response = await axios.post(
-      `${process.env.REACT_APP_BACKEND_URL}/remove-from-favorites`,
-      { item: productDetails },
-      { withCredentials: true }
-      );  
-      if (response.status === 200) {
+  // const onRemoveFromFavorites = async (productDetails) => {
+  //   try {
+  //     const response = await axios.post(
+  //     `${process.env.REACT_APP_BACKEND_URL}/remove-from-favorites`,
+  //     { item: productDetails },
+  //     { withCredentials: true }
+  //     );  
+  //     if (response.status === 200) {
         
-        alert("Item successfully removed from favorites.");
-      }
-    }
+  //       alert("Item successfully removed from favorites.");
+  //     }
+  //   }
   
-    catch (error) {
-      console.error("There was an error removing the item from favorites:", error);
-    }
-  };
+  //   catch (error) {
+  //     console.error("There was an error removing the item from favorites:", error);
+  //   }
+  // };
 
 
   return (
