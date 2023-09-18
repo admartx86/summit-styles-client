@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
+
 import { Routes, Route, Outlet } from 'react-router-dom';
 import '../css/styles.css';
+import UserContext from '../contexts/UserContext';
 
 //<header>
 import SiteLogo from './SiteLogo';
@@ -22,10 +24,13 @@ import ScrollToTop from './ScrollToTop';
 
 const App = () => {
   
-
+  const [username, setUsername] = useState(null);
   
   return (
+    
     <div>
+      <UserContext.Provider value={{ username, setUsername }}>
+      
        <ScrollToTop />
       <header>
         <SiteLogo />
@@ -44,6 +49,9 @@ const App = () => {
         <SocialMediaLinks />
         <Newsletter />
       </footer>
+    
+    
+        </UserContext.Provider>
     </div>
   );
 }

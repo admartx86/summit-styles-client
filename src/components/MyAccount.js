@@ -1,44 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
+import UserContext from '../contexts/UserContext'; // Make sure this path is correct
+import { useNavigate } from "react-router-dom"; // Make sure this path is correct
 
 const MyAccount = () => {
+
+
+     const navigate = useNavigate(); // Define navigate function
+    const { setUsername } = useContext(UserContext); // Destructure setUsername from UserContext
   
     const [loginUsername, setLoginUsername] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
     const [registerUsername, setRegisterUsername] = useState('');
     const [registerPassword, setRegisterPassword] = useState('');
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
+    const loginUser = async (username, password) => {
         try {
-            const res = await axios.post(
+          const res = await axios.post(
             `${process.env.REACT_APP_BACKEND_URL}/login`,
-            { username: loginUsername, password: loginPassword },
+            { username, password },
             { withCredentials: true }
-            );
-            console.log('Login post request successful', res.data);
+          );
+          setUsername(username);
+          navigate("/");
         } catch (error) {
-            console.log('Login post request failed', error);
+          console.log('Login post request failed', error);
         }
-    };
-
-    const handleRegister = async (e) => {
+      };
+      
+      const handleLogin = async (e) => {
+        e.preventDefault();
+        loginUser(loginUsername, loginPassword);
+      };
+      
+      const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(
-            `${process.env.REACT_APP_BACKEND_URL}/register`, 
+          const res = await axios.post(
+            `${process.env.REACT_APP_BACKEND_URL}/register`,
             { username: registerUsername, password: registerPassword },
             { withCredentials: true }
-            );
-            console.log('Register post request successful', res.data);
+          );
+          console.log('Register post request successful', res.data);
+          loginUser(registerUsername, registerPassword);
         } catch (error) {
-            console.log('Register post request failed', error);
+          console.log('Register post request failed', error);
         }
-    };
+      };
+      
 
     return (
         <div>
-            <h1>Login</h1>
+            <h1>Sign In</h1>
+            <p>Welcome back! Enter your username and password to sign in.</p>
             <form onSubmit={handleLogin}>
                 <input
                     type="text"
@@ -52,9 +66,10 @@ const MyAccount = () => {
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
                 />
-                <button type="submit">Login</button>
+                <button type="submit">Sign In</button>
             </form>
             <h1>Register</h1>
+            <p>Don't have an account? Enter a username and password to register.</p>
             <form onSubmit={handleRegister}>
                 <input
                     type="text"
@@ -72,7 +87,6 @@ const MyAccount = () => {
             </form>
         </div>
     );
-
 };
 
 export default MyAccount;
