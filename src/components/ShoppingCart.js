@@ -19,13 +19,23 @@ const ShoppingCart = () => {
         { withCredentials: true }
       );
       if (response.status === 200) {
-        // window.location.reload();
+        let found = false;
+        const newCartItems = cartItems.filter(item => {
+          if (item.id === Number(productDetails.productId) && item.size === productDetails.size && !found) {
+            found = true;
+            return false;
+          }
+          return true;
+        });
+        
+        console.log("New Cart Items: ", newCartItems);
+        setCartItems(newCartItems);
+        console.log("Cart Items: ", cartItems);
       }
     } catch (error) {
       console.error("There was an error removing the item from cart:", error);
     }
-    
-  }; 
+  };
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-cart` , { withCredentials: true })
