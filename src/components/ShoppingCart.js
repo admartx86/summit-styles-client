@@ -19,7 +19,7 @@ const ShoppingCart = () => {
         { withCredentials: true }
       );
       if (response.status === 200) {
-        window.location.reload();
+        // window.location.reload();
       }
     } catch (error) {
       console.error("There was an error removing the item from cart:", error);

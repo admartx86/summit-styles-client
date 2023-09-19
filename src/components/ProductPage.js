@@ -4,25 +4,19 @@ import { useParams } from 'react-router-dom';
 import Product from './Product';
 
 const ProductPage = () => {
+  
   const [product, setProduct] = useState(null);
   const { productId } = useParams();
   const [favoriteItems, setFavoriteItems] = useState([]);
-  const [isFavorite, setIsFavorite] = useState(false); // New state to track if the product is a favorite
-
-  useEffect(() => {
-    const savedPosition = localStorage.getItem('scrollPosition');
-    if (savedPosition !== null) {
-      window.scrollTo(0, savedPosition);
-      localStorage.removeItem('scrollPosition');
-    }
-  }, []);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/products/${productId}`, { withCredentials: true });
         setProduct(res.data);
-      } catch (error) {
+      }
+      catch (error) {
         console.error("There was an error fetching the data", error);
       }
     };
@@ -32,15 +26,14 @@ const ProductPage = () => {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-favorites`, {
-          withCredentials: true,
-        });
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-favorites`, {withCredentials: true,});
         if (response.status === 200) {
           setFavoriteItems(response.data.favorites);
           const favoriteIds = response.data.favorites.map(item => item.id);
-          setIsFavorite(favoriteIds.includes(Number(productId)));  // Initialize isFavorite
+          setIsFavorite(favoriteIds.includes(Number(productId)));
         }
-      } catch (error) {
+      }
+      catch (error) {
         console.error('Failed to fetch favorites:', error);
       }
     };
@@ -50,10 +43,10 @@ const ProductPage = () => {
   if (!product) {
     return <p>Loading...</p>;
   }
-
+  
   const renderColor = product.color == null ? false : true;
   const renderSize = product.size == null ? false : true;
-
+  
   return (
     <div className="product-page">
       <Product
@@ -67,8 +60,8 @@ const ProductPage = () => {
         productSize={product.size}
         productCategory={product.category}
         renderAddToCart={true}
-        renderAddToFavorites={!isFavorite}  // Using the isFavorite state
-        renderRemoveFromFavorites={isFavorite}  // Using the isFavorite state
+        renderAddToFavorites={!isFavorite}
+        renderRemoveFromFavorites={isFavorite}
         renderColor={renderColor}
         renderSize={renderSize}
         renderQuantity={true}
@@ -76,6 +69,7 @@ const ProductPage = () => {
       />
     </div>
   );
+
 };
 
 export default ProductPage;
