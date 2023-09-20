@@ -37,10 +37,18 @@ const ProductPage = () => {
       const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/products/${productId}`, { withCredentials: true });
       setProduct(res.data);
       initializeProductState(res.data);
+      setProducts([res.data]); //debug
     };
     fetchData();
   }, [productId]);
 
+  useEffect(() => {
+    if (favoriteItems.length > 0 && products.length > 0) {
+      const favoriteIds = favoriteItems.map(item => item.id);
+      setIsFavorite({ [productId]: favoriteIds.includes(Number(productId)) });
+    }
+  }, [favoriteItems, products, productId]);
+  
   if (!product) {
     return <p>Loading...</p>;
   }
