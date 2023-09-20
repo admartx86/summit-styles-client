@@ -48,7 +48,7 @@ const ProductPage = () => {
       setIsFavorite({ [productId]: favoriteIds.includes(Number(productId)) });
     }
   }, [favoriteItems, products, productId]);
-  
+
   if (!product) {
     return <p>Loading...</p>;
   }
@@ -106,7 +106,7 @@ const ProductPage = () => {
               Add to Cart
             </button>
             {isFavorite[productId] ? (
-              <button onClick={() => handleRemoveFromFavorites({
+              <button className="remove-from-favorites-button" onClick={() => handleRemoveFromFavorites({
                 productId,
                 productImage,
                 productName,
@@ -116,7 +116,7 @@ const ProductPage = () => {
                 selectedSize,
               })}
               >
-                Remove from Favorites
+                ❤️ Favorite
               </button>
             ) : (
               <button onClick={() => onAddToFavorites({

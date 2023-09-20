@@ -446,6 +446,12 @@ header {
     font-size: x-large;
 }
 
+.product-page .product-buttons .remove-from-favorites-button {
+    background-color: #ffffff;
+    color: #A74C4F;
+    border: 2px solid #A74C4F;
+};
+
 .product-page button:hover {
     background-color: #4ca787;
 }
