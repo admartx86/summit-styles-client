@@ -6,9 +6,7 @@ import Womens from './Womens';
 import Mens from './Mens';
 import Kids from './Kids';
 import BagsGear from './BagsGear';
-import Product from './Product';
-import products from '../productData';
-import ProductList from './ProductList';
+// import ProductList from './ProductList';
 import ProductPage from './ProductPage';
 
 

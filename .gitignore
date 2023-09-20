@@ -4,3 +4,5 @@ node_modules
 developer.txt
 products.json
 .prettierrc
+src/components/test.js
+src/components/bookmark.js

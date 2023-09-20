@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export const onRemoveFromFavorites = async (productDetails) => {
+export const onRemoveFromFavorites = async ({ productId, productImage, productName, productPrice }) => {
   try {
     const response = await axios.delete(
-      `${process.env.REACT_APP_BACKEND_URL}/remove-from-favorites/${productDetails.productId}`,
+      `${process.env.REACT_APP_BACKEND_URL}/remove-from-favorites/${productId}`,
       { withCredentials: true }
     );
     if (response.status === 200) {

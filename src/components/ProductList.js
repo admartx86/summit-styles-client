@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import Product from './Product';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import useProductState from './useProductState';
 
 const ProductList = ({ category }) => {
-  const [products, setProducts] = useState([]);
+  const { products, setProducts } = useProductState();
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
-      // Fetch products
       const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/products`, { withCredentials: true });
       let productList = res.data;
 
-      // Filter products by category if a category is specified
       if (category) {
         productList = productList.filter(product => product.category.includes(category));
       }
@@ -22,7 +20,7 @@ const ProductList = ({ category }) => {
     };
 
     fetchData();
-  }, [category]);
+  }, [category, setProducts]);
 
   const navigateToProduct = (productId) => {
     navigate(`/shop/product/${productId}`);
@@ -36,25 +34,11 @@ const ProductList = ({ category }) => {
           className="listed-product" 
           onClick={() => navigateToProduct(product.id)}
         >
-          <Product
-            key={product.id}
-            productImage={product.image}
-            productName={product.name}
-            productDescription={product.description}
-            productPrice={product.price}
-            productColor={product.color}
-            productSize={product.size}
-            productCategory={product.category}
-            //onAddToCart={...}  // Add respective functions
-            //onAddToWishlist={...} // Add respective functions
-            renderAddToCart={false}
-            renderAddToWishlist={false}
-            renderColor={false}
-            renderSize={false}
-            renderQuantity={false}
-            renderDescription={false}
-          />
-          {/* <Link to={`/shop/product/${product.id}`}>View Details</Link> */}
+          <div className="product">
+            <img src={product.image} alt={product.name} />
+            <h2 className='product-name'>{product.name}</h2>
+            <p className='product-price'>{`$${product.price.toFixed(2)}`}</p>
+          </div>
         </div>
       ))}
     </div>
