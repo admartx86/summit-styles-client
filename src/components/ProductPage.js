@@ -8,7 +8,7 @@ import { FavoritesContext } from '../contexts/FavoritesContext';
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
   const { productId } = useParams();
-  const { cartItems, setCartItems } = useContext(CartContext);
+  const { cartItems, setCartItems, showCard, setShowCard, handleShowCard } = useContext(CartContext);
 
   const {
     products,
@@ -70,7 +70,8 @@ const ProductPage = () => {
     }
   }, [favoriteItems, products, productId]);
 
-  
+ 
+
   if (!product) {
     return <p>Loading...</p>;
   }
@@ -115,15 +116,18 @@ const ProductPage = () => {
             />
           </div>
           <div className="product-buttons">
-            <button onClick={() => onAddToCart({
-              productId,
-              productImage,
-              productName,
-              productPrice,
-              quantity,
-              selectedColor,
-              selectedSize,
-            })}
+            <button onClick={() => {
+  onAddToCart({
+    productId,
+    productImage,
+    productName,
+    productPrice,
+    quantity,
+    selectedColor,
+    selectedSize,
+  });
+  handleShowCard();
+}}
             >
               Add to Cart
             </button>
@@ -148,6 +152,15 @@ const ProductPage = () => {
             )}
           </div>
         </div>
+      </div>
+      <div className={`card ${showCard ? 'show' : ''}`}>
+      <div style={{
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '10px',
+}}><img src={productImage} width="80"/><span style={{fontWeight: "Bold"}}>Added to cart!</span></div>
       </div>
     </div>
   );
