@@ -1,38 +1,40 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import axios from 'axios';  // Don't forget to import axios
 import HamburgerMenu from './HamburgerMenu';
 import UserContext from '../contexts/UserContext';
 import { CartContext } from '../contexts/CartContext';
+import { FavoritesContext } from '../contexts/FavoritesContext';
 
 const MainNavigation = () => {
     
-    // const [cartItems, setCartItems] = useState([]);
+   
     const { cartItems, setCartItems } = useContext(CartContext);
 
-    const [totalCartItems, setTotalCartItems] = useState(0); ///
-    const navigate = useNavigate(); // Define navigate function
+    const [totalCartItems, setTotalCartItems] = useState(0);
+    const navigate = useNavigate();
+    const [totalFavoriteItems, setTotalFavoriteItems] = useState(0);
 
-    const { username, setUsername } = useContext(UserContext); // Destructure setUsername
+    const { username, setUsername } = useContext(UserContext); 
+    const {
+        favoriteItems,
+        setFavoriteItems,
+        isFavorite,
+        setIsFavorite,
+        removeFromFavorites,
+        addToFavorites,
+      } = useContext(FavoritesContext);
+
    
-    // useEffect(() => {
-    //     axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-cart` , { withCredentials: true })
-    //       .then(response => {
-    //         if (Array.isArray(response.data.cart)) {
-    //             console.log("Response Data: ", response.data); 
-    //             setCartItems(response.data.cart);
-    //         }
-    //       })
-    //       .catch(error => {
-    //         console.error("Error fetching cart items:", error);
-    //       });
-         
-    //   }, []);
 
       useEffect(() => {
         const total = calculateTotalItems();
         setTotalCartItems(total);
       }, [cartItems]);
+      
+      useEffect(() => {
+        const totalFavorites = calculateTotalFavorites();
+        setTotalFavoriteItems(totalFavorites);
+      }, [favoriteItems]);
       
   const calculateTotalItems = () => {
     console.log("Cart Items: ", cartItems);
@@ -41,6 +43,12 @@ const MainNavigation = () => {
       0
     );
   };
+
+  const calculateTotalFavorites = () => {
+    console.log("Favorite Items: ", favoriteItems);
+    return favoriteItems.length; 
+  };
+  
 
     const handleLogout = async (e) => {
         e.preventDefault();
@@ -51,7 +59,7 @@ const MainNavigation = () => {
                 { withCredentials: true }
             );
             console.log('Logout post request successful', res.data);
-            setUsername(null); // Reset the username in global context
+            setUsername(null); 
             navigate("/");
         } catch (error) {
             console.log('Logout post request failed', error);
@@ -81,7 +89,10 @@ const MainNavigation = () => {
                     <p>Shop</p>
                 </Link>
                 <Link to="/favorites" className="main-navigation-link" >
-                    <img src="https://summit-styles.s3.us-east-2.amazonaws.com/heart-32-px.png" alt='' />
+                    <div className="favorites-icon-container">
+                    <img className="favorites-icon" src="https://summit-styles.s3.us-east-2.amazonaws.com/heart-32-px.png" alt='' />
+                    <p className="total-favorite-items">{calculateTotalFavorites()}</p>
+                    </div>
                     <p>Favorites</p>
                 </Link>
                 <Link to="/cart" className="main-navigation-link" >

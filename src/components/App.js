@@ -4,6 +4,7 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import '../css/styles.css';
 import UserContext from '../contexts/UserContext';
 import { CartProvider } from '../contexts/CartContext'; 
+import { FavoritesProvider } from '../contexts/FavoritesContext';
 
 //<header>
 import SiteLogo from './SiteLogo';
@@ -31,6 +32,7 @@ const App = () => {
     
     <div>
       <CartProvider>
+        <FavoritesProvider>
       <UserContext.Provider value={{ username, setUsername }}>
       
        <ScrollToTop />
@@ -54,6 +56,7 @@ const App = () => {
       
     
         </UserContext.Provider>
+        </FavoritesProvider>
         </CartProvider>
     </div>
   );

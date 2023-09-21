@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import useProductState from './useProductState';
 import { CartContext } from '../contexts/CartContext';
+import { FavoritesContext } from '../contexts/FavoritesContext';
 
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
@@ -12,10 +13,10 @@ const ProductPage = () => {
   const {
     products,
     setProducts,
-    favoriteItems,
-    setFavoriteItems,
-    isFavorite,
-    setIsFavorite,
+    // favoriteItems,
+    // setFavoriteItems,
+    // isFavorite,
+    // setIsFavorite,
     productImage,
     setProductImage,
     productName,
@@ -29,10 +30,19 @@ const ProductPage = () => {
     selectedSize,
     setSelectedSize,
     onAddToCart,
-    handleRemoveFromFavorites,
-    onAddToFavorites,
+    // handleRemoveFromFavorites,
+    // onAddToFavorites,
     initializeProductState
   } = useProductState(product);
+
+  const {
+    favoriteItems,
+    setFavoriteItems,
+    isFavorite,
+    setIsFavorite,
+    removeFromFavorites,
+    addToFavorites,
+  } = useContext(FavoritesContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,13 +54,23 @@ const ProductPage = () => {
     fetchData();
   }, [productId]);
 
+  // useEffect(() => {
+  //   if (favoriteItems.length > 0 && products.length > 0) {
+  //     const favoriteIds = favoriteItems.map(item => item.id);
+  //     setIsFavorite({ [productId]: favoriteIds.includes(Number(productId)) });
+  //   }
+  // }, [favoriteItems, products, productId]);
+
   useEffect(() => {
+    console.log("useEffect running. favoriteItems, products, productId:", favoriteItems, products, productId);
     if (favoriteItems.length > 0 && products.length > 0) {
       const favoriteIds = favoriteItems.map(item => item.id);
+      console.log("favoriteIds: ", favoriteIds);
       setIsFavorite({ [productId]: favoriteIds.includes(Number(productId)) });
     }
   }, [favoriteItems, products, productId]);
 
+  
   if (!product) {
     return <p>Loading...</p>;
   }
@@ -108,20 +128,12 @@ const ProductPage = () => {
               Add to Cart
             </button>
             {isFavorite[productId] ? (
-              <button className="remove-from-favorites-button" onClick={() => handleRemoveFromFavorites({
-                productId,
-                productImage,
-                productName,
-                productPrice,
-                quantity,
-                selectedColor,
-                selectedSize,
-              })}
+              <button className="remove-from-favorites-button" onClick={() => removeFromFavorites(productId)}
               >
                 ❤️ Favorite
               </button>
             ) : (
-              <button className="add-to-favorites-button" onClick={() => onAddToFavorites({
+              <button className="add-to-favorites-button" onClick={() => addToFavorites({
                 productId,
                 productImage,
                 productName,

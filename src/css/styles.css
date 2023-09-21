@@ -714,14 +714,41 @@ footer {
   
   .total-cart-items {
     position: absolute; /* Absolute positioning for the text */
-    top: -20%;             /* Align to the top of the container */
-    left: 45%;          /* Center horizontally */
+    top: 40%;             /* Align to the top of the container */
+    left: 70%;          /* Center horizontally */
     transform: translate(-60%, 0); /* Correct for the width of the text itself */
     background-color: #5dbea3; /* Optional: to make the text stand out */
     border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
     padding: 0px;       /* Optional: some spacing */
     font-size: medium;
     font-weight: bold;
     color: #ffffff;
   }
   
+  .favorites-icon-container {
+    position: relative; /* Relative positioning for the container */
+    display: inline-flex;
+  }
+  
+  
+  
+  .total-favorite-items {
+    position: absolute; /* Absolute positioning for the text */
+    top: 40%;             /* Align to the top of the container */
+    left: 70%;          /* Center horizontally */
+    transform: translate(-60%, 0); /* Correct for the width of the text itself */
+    background-color: #A74C4F;; /* Optional: to make the text stand out */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    padding: 0px;       /* Optional: some spacing */
+    font-size: medium;
+    font-weight: bold;
+    color: #ffffff;
+  }
