@@ -91,14 +91,20 @@ const MainNavigation = () => {
                 <Link to="/favorites" className="main-navigation-link" >
                     <div className="favorites-icon-container">
                     <img className="favorites-icon" src="https://summit-styles.s3.us-east-2.amazonaws.com/heart-32-px.png" alt='' />
-                    <p className="total-favorite-items">{calculateTotalFavorites()}</p>
+                    
+                        
+                        
+                     { calculateTotalFavorites() == 0 ? null : <p className="total-favorite-items">{calculateTotalFavorites()}</p>}   
+                     
                     </div>
                     <p>Favorites</p>
                 </Link>
                 <Link to="/cart" className="main-navigation-link" >
                     <div className="cart-icon-container">
                     <img className= "cart-icon" src="https://summit-styles.s3.us-east-2.amazonaws.com/cart-32-px.png" alt='' />
-                    <p className="total-cart-items">{calculateTotalItems()}</p>
+
+                        { calculateTotalItems() == 0 ? null : <p className="total-cart-items">{calculateTotalItems()}</p>}
+                   
                     </div>
                     <p>Cart</p>
                     
