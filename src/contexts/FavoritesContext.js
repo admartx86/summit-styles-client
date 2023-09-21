@@ -7,6 +7,7 @@ export const FavoritesProvider = ({ children }) => {
   const [favoriteItems, setFavoriteItems] = useState([]);
   const [isFavorite, setIsFavorite] = useState({});
 
+
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
@@ -56,6 +57,7 @@ export const FavoritesProvider = ({ children }) => {
 
         setFavoriteItems(prevItems => [...prevItems, newItem]);
         setIsFavorite({ ...isFavorite, [newItem.id]: true });
+   
       }
     } catch (error) {
       console.error("There was an error adding the item to favorites:", error);

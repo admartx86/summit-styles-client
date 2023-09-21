@@ -769,7 +769,7 @@ footer {
     justify-content: center;
 
     position: fixed;
-    top: -102px;
+    top: -115px;
     left: 50%;
     transform: translateX(-50%);
     width: 240px;
@@ -780,11 +780,11 @@ footer {
     line-height: 100px;
     transition: top 0.5s ease-in-out;
     z-index: 10;
+    box-shadow: 0 4px 8px #2A2A2A;
   }
   
   .card.show {
-    top: 102px;
+    top: 100px;
     z-index: 10;
-    box-shadow: 0 4px 8px #2A2A2A;
   }
   
