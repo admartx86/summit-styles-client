@@ -75,7 +75,7 @@ const { cartItems, setCartItems } = useContext(CartContext);
 
     return (
       <div className="hamburger-menu">
-        <button onClick={toggleMenu} className="hamburger-button">
+        <button onClick={toggleMenu} className="hamburger-button hamburger-menu-link">
           {isOpen || isShopMenuOpen ? '✕' : '☰'}
         </button>
         {isOpen && !isShopMenuOpen && (
@@ -123,13 +123,13 @@ const { cartItems, setCartItems } = useContext(CartContext);
           </div>
         )}
         {isShopMenuOpen && (
-          <div className="menu-content">
-             <Link to="/shop/sale" className="hamburger-menu-link" onClick={closeMenus}>Sale</Link>
-                <Link to="/shop/new-featured" className="hamburger-menu-link" onClick={closeMenus}>New & Featured</Link>
-                <Link to="/shop/womens" className="hamburger-menu-link" onClick={closeMenus} >Women's</Link>
-                <Link to="/shop/mens" className="hamburger-menu-link" onClick={closeMenus}>Men's</Link>
-                <Link to="/shop/kids" className="hamburger-menu-link" onClick={closeMenus}>Kids</Link>
-                <Link to="/shop/bags-gear" className="hamburger-menu-link" onClick={closeMenus}>Bags & Gear</Link>
+          <div className="menu-content submenu-content">
+             <Link to="/shop/sale" className="hamburger-menu-sub-link" onClick={closeMenus}>Sale</Link>
+                <Link to="/shop/new-featured" className="hamburger-menu-sub-link" onClick={closeMenus}>New & Featured</Link>
+                <Link to="/shop/womens" className="hamburger-menu-sub-link" onClick={closeMenus} >Women's</Link>
+                <Link to="/shop/mens" className="hamburger-menu-sub-link" onClick={closeMenus}>Men's</Link>
+                <Link to="/shop/kids" className="hamburger-menu-sub-link" onClick={closeMenus}>Kids</Link>
+                <Link to="/shop/bags-gear" className="hamburger-menu-sub-link" onClick={closeMenus}>Bags & Gear</Link>
           </div>
         )}
       </div>
