@@ -85,7 +85,7 @@ const { cartItems, setCartItems } = useContext(CartContext);
             <button onClick={toggleShopMenu} className="hamburger-menu-link shop-button">
             <img src="https://summit-styles.s3.us-east-2.amazonaws.com/shop-32-px.png" alt=''/><p>Shop</p>
             </button>
-            <Link to="/favorites" className="hamburger-menu-link" >
+            <Link to="/favorites" className="hamburger-menu-link" onClick={closeMenus} >
                     <div className="favorites-icon-container">
                     <img className="favorites-icon" src="https://summit-styles.s3.us-east-2.amazonaws.com/heart-32-px.png" alt='' />
                     
@@ -102,7 +102,7 @@ const { cartItems, setCartItems } = useContext(CartContext);
             {/* <Link to="/cart" className="hamburger-menu-link" onClick={closeMenus}>
             <img src="https://summit-styles.s3.us-east-2.amazonaws.com/cart-32-px.png" alt='' /><p>Cart</p>
             </Link> */}
-            <Link to="/cart" className="hamburger-menu-link" >
+            <Link to="/cart" className="hamburger-menu-link" onClick={closeMenus} >
                     <div className="cart-icon-container">
                     <img className= "cart-icon" src="https://summit-styles.s3.us-east-2.amazonaws.com/cart-32-px.png" alt='' />
 

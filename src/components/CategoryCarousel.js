@@ -50,7 +50,7 @@ const CategoryCarousel = () => {
         <Carousel className="carousel"
             showThumbs={false}
             showStatus={false}
-            infiniteLoop={false}
+            infiniteLoop={true}
             showIndicators={false}
             showArrows={true}
             autoPlay={true}
