@@ -447,6 +447,27 @@ header {
     font-size: x-large;
 }
 
+
+
+
+@media (max-width: 1200px) {
+    .product-page .product-buttons button {
+        font-size: large;
+    }
+}
+
+@media (max-width: 550px) {
+    .product-page .product-buttons button {
+        font-size: medium;
+    }
+}
+
+@media (max-width: 400px) {
+    .product-page .product-buttons button {
+        font-size: small;
+    }
+}
+
 .product-page .product-buttons .remove-from-favorites-button {
     background-color: #ffffff;
     color: #A74C4F;
