@@ -450,7 +450,18 @@ header {
     background-color: #ffffff;
     color: #A74C4F;
     border: 2px solid #A74C4F;
-};
+}
+
+.product-page .product-buttons .remove-from-favorites-button:hover {
+    background-color: #ffffff;
+    color: #884143;
+    border: 2px solid #884143;
+}
+
+/* .product-page .product-buttons .add-to-favorites-button {
+    background-color: #A74C4F;
+    color: #ffffff;
+} */
 
 .product-page button:hover {
     background-color: #4ca787;
@@ -687,3 +698,30 @@ footer {
       display: none; /* Hide regular links */
     }
   }
+
+
+  /* .main-navigation-links * {
+    border: solid 1px red;
+
+  } */
+
+  .cart-icon-container {
+    position: relative; /* Relative positioning for the container */
+    display: inline-flex;
+  }
+  
+  
+  
+  .total-cart-items {
+    position: absolute; /* Absolute positioning for the text */
+    top: -20%;             /* Align to the top of the container */
+    left: 45%;          /* Center horizontally */
+    transform: translate(-60%, 0); /* Correct for the width of the text itself */
+    background-color: #5dbea3; /* Optional: to make the text stand out */
+    border-radius: 50%;
+    padding: 0px;       /* Optional: some spacing */
+    font-size: medium;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  

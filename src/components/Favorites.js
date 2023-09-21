@@ -31,9 +31,9 @@ const Favorites = () => {
                   <div>{`$${item.price}`}</div>
                 </div>
               </Link>
-              <button onClick={() => {
+              <a href="#" onClick={() => {
                 handleRemoveFromFavorites({productId: item.id}); // Use the function from the custom hook
-              }}>Remove</button>
+              }}>Remove from favorites</a>
             </div>
           ))}
         </div>

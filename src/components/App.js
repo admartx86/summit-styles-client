@@ -3,6 +3,7 @@ import React, { useState, useContext } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import '../css/styles.css';
 import UserContext from '../contexts/UserContext';
+import { CartProvider } from '../contexts/CartContext'; 
 
 //<header>
 import SiteLogo from './SiteLogo';
@@ -29,6 +30,7 @@ const App = () => {
   return (
     
     <div>
+      <CartProvider>
       <UserContext.Provider value={{ username, setUsername }}>
       
        <ScrollToTop />
@@ -49,9 +51,10 @@ const App = () => {
         <SocialMediaLinks />
         <Newsletter />
       </footer>
-    
+      
     
         </UserContext.Provider>
+        </CartProvider>
     </div>
   );
 }

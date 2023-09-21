@@ -1,15 +1,46 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from 'axios';  // Don't forget to import axios
+// import axios from 'axios';  // Don't forget to import axios
 import HamburgerMenu from './HamburgerMenu';
 import UserContext from '../contexts/UserContext';
-
+import { CartContext } from '../contexts/CartContext';
 
 const MainNavigation = () => {
     
+    // const [cartItems, setCartItems] = useState([]);
+    const { cartItems, setCartItems } = useContext(CartContext);
+
+    const [totalCartItems, setTotalCartItems] = useState(0); ///
     const navigate = useNavigate(); // Define navigate function
 
     const { username, setUsername } = useContext(UserContext); // Destructure setUsername
+   
+    // useEffect(() => {
+    //     axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-cart` , { withCredentials: true })
+    //       .then(response => {
+    //         if (Array.isArray(response.data.cart)) {
+    //             console.log("Response Data: ", response.data); 
+    //             setCartItems(response.data.cart);
+    //         }
+    //       })
+    //       .catch(error => {
+    //         console.error("Error fetching cart items:", error);
+    //       });
+         
+    //   }, []);
+
+      useEffect(() => {
+        const total = calculateTotalItems();
+        setTotalCartItems(total);
+      }, [cartItems]);
+      
+  const calculateTotalItems = () => {
+    console.log("Cart Items: ", cartItems);
+    return cartItems.reduce(
+      (acc, item) => acc + item.quantity,
+      0
+    );
+  };
 
     const handleLogout = async (e) => {
         e.preventDefault();
@@ -26,6 +57,8 @@ const MainNavigation = () => {
             console.log('Logout post request failed', error);
         }
     };
+
+    
 
     return (
         
@@ -52,8 +85,12 @@ const MainNavigation = () => {
                     <p>Favorites</p>
                 </Link>
                 <Link to="/cart" className="main-navigation-link" >
-                    <img src="https://summit-styles.s3.us-east-2.amazonaws.com/cart-32-px.png" alt='' />
+                    <div className="cart-icon-container">
+                    <img className= "cart-icon" src="https://summit-styles.s3.us-east-2.amazonaws.com/cart-32-px.png" alt='' />
+                    <p className="total-cart-items">{calculateTotalItems()}</p>
+                    </div>
                     <p>Cart</p>
+                    
                 </Link>
                 <Link to="/account" className="main-navigation-link" >
                     <img src="https://summit-styles.s3.us-east-2.amazonaws.com/user-32-px.png" alt='' />

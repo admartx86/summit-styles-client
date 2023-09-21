@@ -1,13 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-
-
+import { CartContext } from '../contexts/CartContext';
 
 const ShoppingCart = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const { cartItems, setCartItems } = useContext(CartContext);
 
-  
+// const ShoppingCart = () => {
+//   const [cartItems, setCartItems] = useState([]);
+
+  // useEffect(() => {
+  //   axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-cart` , { withCredentials: true })
+  //     .then(response => {
+  //       if (Array.isArray(response.data.cart)) {
+  //           console.log("Response Data: ", response.data); 
+  //           setCartItems(response.data.cart);
+  //       }
+  //     })
+  //     .catch(error => {
+  //       console.error("Error fetching cart items:", error);
+  //     });
+     
+  // }, []);
+
   const removeFromCart = async (productDetails) => {
     if (!productDetails.productId || !productDetails.size) {
       alert('Invalid product details.');
@@ -35,23 +50,7 @@ const ShoppingCart = () => {
     } catch (error) {
       console.error("There was an error removing the item from cart:", error);
     }
-  };
-
-  useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-cart` , { withCredentials: true })
-      .then(response => {
-        if (Array.isArray(response.data.cart)) {
-            console.log("Response Data: ", response.data); 
-            setCartItems(response.data.cart);
-        }
-      })
-      .catch(error => {
-        console.error("Error fetching cart items:", error);
-      });
-     
-  }, []);
-
- 
+  }; 
   
   const calculateTotal = () => {
     console.log("Cart Items: ", cartItems);
@@ -91,7 +90,7 @@ const ShoppingCart = () => {
               <a href="#" onClick={(e) => {
                 e.preventDefault();
                 removeFromCart({productId: item.id, size: item.size});
-              }}>Remove from Cart</a>
+              }}>Remove from cart</a>
 
             </div>
           ))}
@@ -105,6 +104,7 @@ const ShoppingCart = () => {
       ) : null}
     </div>
   );
+  
 };
 
 export default ShoppingCart;

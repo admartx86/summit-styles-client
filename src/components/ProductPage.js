@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import useProductState from './useProductState';
+import { CartContext } from '../contexts/CartContext';
 
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
   const { productId } = useParams();
+  const { cartItems, setCartItems } = useContext(CartContext);
 
   const {
     products,
@@ -119,7 +121,7 @@ const ProductPage = () => {
                 ❤️ Favorite
               </button>
             ) : (
-              <button onClick={() => onAddToFavorites({
+              <button className="add-to-favorites-button" onClick={() => onAddToFavorites({
                 productId,
                 productImage,
                 productName,

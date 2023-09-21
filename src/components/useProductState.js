@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { CartContext } from '../contexts/CartContext';
 
 const useProductState = (initialProduct) => {
   const [products, setProducts] = useState([]);
@@ -11,6 +12,7 @@ const useProductState = (initialProduct) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
+  const { cartItems, setCartItems } = useContext(CartContext); 
 
   useEffect(() => {
     if (initialProduct) {
@@ -47,7 +49,6 @@ const useProductState = (initialProduct) => {
     };
     fetchFavorites();
   }, [products, favoriteItems]);
-
   const onAddToCart = async ({ productId, productImage, productName, productPrice, quantity, selectedColor, selectedSize }) => {
     try {
       console.log(productId, productImage, productName, productPrice, quantity, selectedColor, selectedSize);
@@ -67,7 +68,21 @@ const useProductState = (initialProduct) => {
         { withCredentials: true }
       );
       if (response.status === 200) {
-        alert("Item successfully added to cart.");
+       
+        const newItem = {
+          id: Number(productId),
+          image: productImage,
+          name: productName,
+          price: productPrice,
+          quantity: quantity,
+          color: selectedColor,
+          size: selectedSize
+        };
+        console.log("New Item: ", newItem); // debug
+        setCartItems(prevCartItems => [...prevCartItems, newItem]);
+        // alert("Item successfully added to cart.");
+        
+        
       }
     } catch (error) {
       console.error("There was an error adding the item to the cart:", error);
