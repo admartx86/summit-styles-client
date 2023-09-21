@@ -75,15 +75,18 @@ const { cartItems, setCartItems } = useContext(CartContext);
 
     return (
       <div className="hamburger-menu">
-        <button onClick={toggleMenu} className="hamburger-button hamburger-menu-link">
+        <button onClick={toggleMenu} className="hamburger-button">
           {isOpen || isShopMenuOpen ? '✕' : '☰'}
         </button>
         {isOpen && !isShopMenuOpen && (
           <div className="menu-content">
             <Link to="/" className="hamburger-menu-link" onClick={closeMenus}>
             <img src="https://summit-styles.s3.us-east-2.amazonaws.com/home-32-px.png" alt=''/><p>Home</p></Link>
+           
             <button onClick={toggleShopMenu} className="hamburger-menu-link shop-button">
             <img src="https://summit-styles.s3.us-east-2.amazonaws.com/shop-32-px.png" alt=''/><p>Shop</p>
+        
+            
             </button>
             <Link to="/favorites" className="hamburger-menu-link" onClick={closeMenus} >
                     <div className="favorites-icon-container">

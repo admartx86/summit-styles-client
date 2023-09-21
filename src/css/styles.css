@@ -90,11 +90,13 @@ header {
     justify-content: flex-end;
     align-items: center;
     max-width: 100%;
+    margin: 10px;
 }
 
 .hello-user {
     display: block;
     padding-right: 10px;
+    padding-bottom: 10px;
     font-size: x-large;
     align-self: flex-end;
 }
@@ -113,6 +115,7 @@ header {
 }
 
 
+
 .main-navigation-links {
     display: flex;
     flex-direction: row;
@@ -121,6 +124,12 @@ header {
     max-width: 100%;
     gap: 10px;
     font-size: x-large;
+}
+
+
+
+.main-navigation-link:hover {
+    color: grey;
 }
 
 .menu-content,
@@ -147,6 +156,7 @@ header {
     gap: 10px;
 }
 
+
 .hamburger-menu {
     display: none;
 
@@ -155,9 +165,11 @@ header {
   .hamburger-button {
     font-size: 24px;
     cursor: pointer;
-    margin: 10px;
+    margin: 0px;
   }
-  
+   .shop-button:hover {
+    cursor: pointer;
+   }
   .menu-content {
     position: absolute;
     top: 100px;
@@ -358,6 +370,10 @@ header {
     font-size: x-large;
 }
 
+.shop-nav a:hover {
+    color: grey;
+}
+
 @media (max-width: 800px) {
     .shop-nav {
         display: none;
@@ -370,10 +386,8 @@ header {
 
 }
 
-.shop-nav-link:hover {
-    transform: scale(1.1);
-    transition: transform 0.2s ease-in-out;
-  }
+
+
 
 .product-list {
     display: grid;
@@ -381,6 +395,8 @@ header {
     gap: 16px;
     padding: 20px;
 }
+
+
 
 @media (min-width: 1200px) {
     .product-list {
@@ -397,6 +413,13 @@ header {
 
 .listed-product {
     cursor: pointer;
+    
+}
+
+.listed-product:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
 }
 
 .product-list .listed-product {
@@ -563,6 +586,32 @@ header {
 .product-page .product-size {
     display: flex;
     gap: 10px;
+}
+/*Favorites*/
+
+.favorite-item * {
+border: solid 1px red;
+}
+
+.favorite-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.link-to-favorite-item {
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+.favorite-item:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
 }
 
 /*Footer*/
@@ -797,7 +846,7 @@ footer {
     justify-content: center;
 
     position: fixed;
-    top: -115px;
+    top: -215px;
     left: 50%;
     transform: translateX(-50%);
     width: 240px;
@@ -815,4 +864,6 @@ footer {
     top: 100px;
     z-index: 10;
   }
+
+ 
   
