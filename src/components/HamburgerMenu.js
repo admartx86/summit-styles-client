@@ -2,12 +2,16 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from "react-router-dom";
 import UserContext from '../contexts/UserContext';
 import axios from 'axios';
+import { FavoritesContext } from '../contexts/FavoritesContext';
+import { CartContext } from '../contexts/CartContext';
 
 const HamburgerMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const { username, setUsername } = useContext(UserContext); // Destructure setUsername
+const { favoriteItems, setFavoriteItems, isFavorite, setIsFavorite, removeFromFavorites, addToFavorites } = useContext(FavoritesContext);
+const { cartItems, setCartItems } = useContext(CartContext);
     // useEffect(() => {
     //   const handleResize = () => {
     //     if (window.innerWidth > 975 && isOpen) {
@@ -56,6 +60,19 @@ const HamburgerMenu = () => {
       }
   };
 
+  const calculateTotalItems = () => {
+    console.log("Cart Items: ", cartItems);
+    return cartItems.reduce(
+      (acc, item) => acc + item.quantity,
+      0
+    );
+  };
+
+  const calculateTotalFavorites = () => {
+    console.log("Favorite Items: ", favoriteItems);
+    return favoriteItems.length; 
+  };
+
     return (
       <div className="hamburger-menu">
         <button onClick={toggleMenu} className="hamburger-button">
@@ -68,12 +85,33 @@ const HamburgerMenu = () => {
             <button onClick={toggleShopMenu} className="hamburger-menu-link shop-button">
             <img src="https://summit-styles.s3.us-east-2.amazonaws.com/shop-32-px.png" alt=''/><p>Shop</p>
             </button>
-            <Link to="/favorites" className="hamburger-menu-link" onClick={closeMenus}>
+            <Link to="/favorites" className="hamburger-menu-link" >
+                    <div className="favorites-icon-container">
+                    <img className="favorites-icon" src="https://summit-styles.s3.us-east-2.amazonaws.com/heart-32-px.png" alt='' />
+                    
+                        
+                        
+                     { calculateTotalFavorites() == 0 ? null : <p className="total-favorite-items">{calculateTotalFavorites()}</p>}   
+                     
+                    </div>
+                    <p>Favorites</p>
+                </Link>
+            {/* <Link to="/favorites" className="hamburger-menu-link" onClick={closeMenus}>
             <img src="https://summit-styles.s3.us-east-2.amazonaws.com/heart-32-px.png" alt='' /><p>Favorites</p>
-            </Link>
-            <Link to="/cart" className="hamburger-menu-link" onClick={closeMenus}>
+            </Link> */}
+            {/* <Link to="/cart" className="hamburger-menu-link" onClick={closeMenus}>
             <img src="https://summit-styles.s3.us-east-2.amazonaws.com/cart-32-px.png" alt='' /><p>Cart</p>
-            </Link>
+            </Link> */}
+            <Link to="/cart" className="hamburger-menu-link" >
+                    <div className="cart-icon-container">
+                    <img className= "cart-icon" src="https://summit-styles.s3.us-east-2.amazonaws.com/cart-32-px.png" alt='' />
+
+                        { calculateTotalItems() == 0 ? null : <p className="total-cart-items">{calculateTotalItems()}</p>}
+                   
+                    </div>
+                    <p>Cart</p>
+                    
+                </Link>
             <Link to="/account" className="hamburger-menu-link" onClick={closeMenus} >
                     <img src="https://summit-styles.s3.us-east-2.amazonaws.com/user-32-px.png" alt='' />
                     { username ? (
