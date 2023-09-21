@@ -48,7 +48,7 @@ const useProductState = (initialProduct) => {
       }
     };
     fetchFavorites();
-  }, [products, favoriteItems]);
+  }, []);
   const onAddToCart = async ({ productId, productImage, productName, productPrice, quantity, selectedColor, selectedSize }) => {
     try {
       console.log(productId, productImage, productName, productPrice, quantity, selectedColor, selectedSize);
