@@ -14,7 +14,7 @@ const Newsletter = () => {
         <section className="newsletter">
             <h3>Join the Summit Club</h3>
             <form onSubmit={handleSubmit}>
-            <p>Subscribe to our newsletter for member-exclusive news and discounts!</p>
+            <p>Subscribe to our newsletter for news and discounts!</p>
                 <input 
                     type="email" 
                     placeholder="Enter your email"

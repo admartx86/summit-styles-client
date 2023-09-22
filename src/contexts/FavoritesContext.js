@@ -9,25 +9,26 @@ export const FavoritesProvider = ({ children }) => {
 
 
   useEffect(() => {
-    const fetchFavorites = async () => {
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-favorites`, { withCredentials: true });
-        if (response.status === 200) {
-          setFavoriteItems(response.data.favorites);
-          const favoriteIds = response.data.favorites.map(item => item.id);
-          let favoriteStatus = {};
-          favoriteIds.forEach(id => {
-            favoriteStatus[id] = true;
-          });
-          setIsFavorite(favoriteStatus);
-        }
-      } catch (error) {
-        console.error("There was an error fetching the favorites:", error);
-      }
-    };
     fetchFavorites();
   }, []);
 
+  const fetchFavorites = async () => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-favorites`, { withCredentials: true });
+      if (response.status === 200) {
+        setFavoriteItems(response.data.favorites);
+        const favoriteIds = response.data.favorites.map(item => item.id);
+        let favoriteStatus = {};
+        favoriteIds.forEach(id => {
+          favoriteStatus[id] = true;
+        });
+        setIsFavorite(favoriteStatus);
+      }
+    } catch (error) {
+      console.error("There was an error fetching the favorites:", error);
+    }
+  };
+  
   const addToFavorites = async (item) => {
     try {
       
@@ -97,7 +98,8 @@ export const FavoritesProvider = ({ children }) => {
       isFavorite,
       setIsFavorite,
       addToFavorites,
-      removeFromFavorites
+      removeFromFavorites,
+      fetchFavorites
     }}>
       {children}
     </FavoritesContext.Provider>

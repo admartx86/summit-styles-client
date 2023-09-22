@@ -16,7 +16,7 @@ const Favorites = () => {
     <div className="favorites">
       <h1>Your Favorites</h1>
       {Array.isArray(favoriteItems) && favoriteItems.length === 0 ? (
-        <p>Add favorites to see them here.</p>
+        <p className='no-favorites-message'>Add favorites to see them here.</p>
       ) : (
         <div className="favorites-grid">
           {Array.isArray(favoriteItems) && favoriteItems.map((item, index) => (

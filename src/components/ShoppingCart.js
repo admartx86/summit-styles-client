@@ -2,9 +2,12 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
+import { FavoritesContext } from '../contexts/FavoritesContext';
 
 const ShoppingCart = () => {
   const { cartItems, setCartItems } = useContext(CartContext);
+
+  const { isFavorite, favoriteItems, setFavoriteItems, fetchFavorites } = useContext(FavoritesContext);
 
 // const ShoppingCart = () => {
 //   const [cartItems, setCartItems] = useState([]);
@@ -22,6 +25,14 @@ const ShoppingCart = () => {
   //     });
      
   // }, []);
+
+  useEffect(() => {
+    // Uncomment if you wish to fetch cart items as well
+    // fetchCartItems();
+    fetchFavorites();
+  }, []);
+
+
 
   const removeFromCart = async (productDetails) => {
     if (!productDetails.productId || !productDetails.size) {
@@ -72,34 +83,43 @@ const ShoppingCart = () => {
     <div className="cart">
       <h1>Your Cart</h1>
       {Array.isArray(cartItems) && cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className="empty-cart-message">Your cart is empty.</p>
       ) : (
         <div>
           {Array.isArray(cartItems) && cartItems.map((item, index) => (
-            <div className="cart-item" key={index}>
-              <Link to={`/shop/product/${item.id}`}>
-             
-              <img src={item.image} alt={item.name} width="50" height="50" />
-              <div>{item.name}</div>
+            <div className="cart-item" key={index} >
+              
+              <Link to={`/shop/product/${item.id}`} style={{ 
+    backgroundColor: isFavorite[item.id] ? "#A74C4F" : "initial",
+    padding: "10px"
+  }}>
+             <div>
+              <img className="cart-image" src={item.image} alt={item.name}/>
+              <div className="cart-item-name" style={{ color: isFavorite[item.id] ? "white" : "initial" }}>{item.name }</div>
              
 
-              <div>{item.size}</div>
-              <div>{`$${item.price} x ${item.quantity}`}</div>
-             
-              </Link>
+              <div className="cart-item-size" style={{ color: isFavorite[item.id] ? "white" : "initial" }}>{item.size}</div>
+              <div style={{ color: isFavorite[item.id] ? "white" : "initial" }}>{`$${item.price} x ${item.quantity}`}</div>
+            
+              </div>
               
-              {/* <button onClick={() => removeFromCart({productId: item.id, size: item.size})}>Remove</button> */}
+              </Link>
+             
+              <div className="remove-from-cart-text">
               <a href="#" onClick={(e) => {
                 e.preventDefault();
                 removeFromCart({productId: item.id, size: item.size});
               }}>Remove from cart</a>
+              </div>
+              {/* <button onClick={() => removeFromCart({productId: item.id, size: item.size})}>Remove</button> */}
+             
 
             </div>
           ))}
         </div>
       )}
       {calculateTotalItems() > 0 ? (
-      <div>
+      <div className="subtotal">
       <h2>Subtotal ({calculateTotalItems()} Item{calculateTotalItems() !== 1 ? 's' : null}) ${calculateTotal()}</h2>
             <button>Proceed to checkout</button>
       </div>
