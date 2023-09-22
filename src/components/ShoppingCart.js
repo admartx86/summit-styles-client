@@ -81,6 +81,8 @@ const ShoppingCart = () => {
              
               <img src={item.image} alt={item.name} width="50" height="50" />
               <div>{item.name}</div>
+             
+
               <div>{item.size}</div>
               <div>{`$${item.price} x ${item.quantity}`}</div>
              

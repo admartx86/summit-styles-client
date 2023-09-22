@@ -18,19 +18,26 @@ const Favorites = () => {
       {Array.isArray(favoriteItems) && favoriteItems.length === 0 ? (
         <p>Add favorites to see them here.</p>
       ) : (
-        <div>
+        <div className="favorites-grid">
           {Array.isArray(favoriteItems) && favoriteItems.map((item, index) => (
-            <div className="favorite-item" key={index}>
+            <div>
+            <div className="favorite-item"  key={index}>
               <Link to={`/shop/product/${item.id}`}>
                 <div className="link-to-favorite-item">
-                  <img src={item.image} alt={item.name} width="50" height="50" />
-                  <div>{item.name}</div>
-                  <div>{`$${item.price}`}</div>
+                  <img src={item.image} alt={item.name} />
+                  
+                  <div className="favorites-name">{item.name}</div>
+                  <div className="favorites-price">{`$${item.price}`}</div>
+                  
                 </div>
+                
               </Link>
-              <a href="#" onClick={() => {
-                removeFromFavorites(item.id);  // Use the function from the context
-              }}>Remove from favorites</a>
+                         
+            </div>
+            <a href="#" className="remove-from-favorites-text" onClick={(e) => {
+               e.preventDefault();
+               removeFromFavorites(item.id);  // Use the function from the context
+              }}>Remove from favorites</a>  
             </div>
           ))}
         </div>
