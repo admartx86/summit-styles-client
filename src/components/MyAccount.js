@@ -64,69 +64,72 @@ const MyAccount = () => {
         }
       };
       
-
-    return (
-        <div>
-            {username ? (
-                <div>
-                <h1>Sign Out</h1>
-                <p>You are signed in as <span style={{ fontWeight: 'bold' }}>{username}</span>.</p>
-                <button onClick={handleLogout}>Sign Out</button>
+      return (
+        <div className='account'>
+            <div className='log-in-out-column'>
+                {username ? (
+                    <div className='sign-out section'>
+                        <h1>Sign Out</h1>
+                        <p>
+                            You are signed in as <span style={{ fontWeight: 'bold' }}>{username}</span>.
+                        </p>
+                        <button className="sign-out-button" onClick={handleLogout}>Sign Out</button>
+                    </div>
+                ) : null}
                 </div>
-
-            ) : (
-                null) }
-            {username ? (
-                <h1>Switch Accounts</h1>
-            ) : (
-            <h1>Sign In</h1>
-            )}
-            {username ? (
-               <p>Enter a different username and password to switch accounts.</p>
-
-            ) :
-            <p>Welcome back! Enter your username and password to sign in.</p>
-            }
-            <form onSubmit={handleLogin}>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={loginUsername}
-                    onChange={(e) => setLoginUsername(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={loginPassword}
-                    onChange={(e) => setLoginPassword(e.target.value)}
-                />
-                <button type="submit">Sign In</button>
-                 {/* put error message here */}
-            </form>
-            <h1>Register</h1>
-            { username ? (  
-            <p>Want to make a new account? Enter a username and password to register.</p>
-            ) : (
-            <p>Don't have an account? Enter a username and password to register.</p>
-            )}
-            <form onSubmit={handleRegister}>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={registerUsername}
-                    onChange={(e) => setRegisterUsername(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={registerPassword}
-                    onChange={(e) => setRegisterPassword(e.target.value)}
-                />
-                <button type="submit">Register</button>
-                {/* put error message here */}
-            </form>
+                <div className='section'>
+                    <h1>{username ? 'Switch Accounts' : 'Sign In'}</h1>
+                    <p>
+                        {username
+                            ? 'Enter a different username and password to switch accounts.'
+                            : 'Welcome back! Enter your username and password to sign in.'}
+                    </p>
+                    <form onSubmit={handleLogin} className="input-column">
+                        <input
+                            type="text"
+                            placeholder="Username"
+                            value={loginUsername}
+                            onChange={(e) => setLoginUsername(e.target.value)}
+                        />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={loginPassword}
+                            onChange={(e) => setLoginPassword(e.target.value)}
+                        />
+                        <button type="submit">Sign In</button>
+                        {/* put error message here */}
+                    </form>
+                </div>
+        
+                <div className='section'>
+                    <h1>Register</h1>
+                    <p>
+                        {username
+                            ? 'Enter a new username and password to register an account.'
+                            : "New customer? Enter a username and password to register."}
+                    </p>
+                    <form onSubmit={handleRegister} className="input-column">
+                        <input
+                            type="text"
+                            placeholder="Username"
+                            value={registerUsername}
+                            onChange={(e) => setRegisterUsername(e.target.value)}
+                        />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={registerPassword}
+                            onChange={(e) => setRegisterPassword(e.target.value)}
+                        />
+                        <button type="submit">Register</button>
+                        {/* put error message here */}
+                    </form>
+                </div>
+            
         </div>
     );
-};
+
+                        };
 
 export default MyAccount;

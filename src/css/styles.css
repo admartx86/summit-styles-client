@@ -90,7 +90,7 @@ header {
     justify-content: space-evenly;
     align-items: center;
     max-width: 100%;
-    min-width: 150px;
+    min-width: 100px;
     margin: 10px;
 }
 
@@ -1048,5 +1048,66 @@ footer {
     z-index: 10;
   }
 
- 
-  
+
+.sign-out-button {
+    margin: 10px;
+}
+
+.account {
+    padding: 10px;
+}
+
+
+.section > * {
+    padding: 10px;
+}
+
+.section > p {
+    font-size: large;
+}
+
+.input-column input, .input-column button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.input-column button, .sign-out button {
+    display: block;
+    padding: 10px 15px;
+    background-color: #5dbea3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 100%;
+    font-size: x-large;
+}
+
+@media (max-width: 1200px) {
+    .input-column button, .sign-out button {
+        font-size: large;
+    }
+}
+
+@media (max-width:800px) {
+    .input-column button, .sign-out button {
+        font-size: medium;
+    }
+}
+
+@media (max-width: 400px) {
+    .input-column button, .sign-out button {
+        font-size: small;
+    }
+}
+
+
+
+.input-column input {
+    display: block;
+    margin-bottom: 20px;
+    height: 40px; /* Adjust the height */
+    font-size: 18px; /* Adjust the font size */
+    width: 50%; /* Take up full width of the parent container */
+    padding: 0 10px; /* Inner padding */
+}
