@@ -8,75 +8,47 @@ import { FavoritesContext } from '../contexts/FavoritesContext';
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
   const { productId } = useParams();
-  const { cartItems, setCartItems, showCard, setShowCard, handleShowCard } = useContext(CartContext);
+  const { showCard, handleShowCard } = useContext(CartContext);
 
   const {
     products,
     setProducts,
-    // favoriteItems,
-    // setFavoriteItems,
-    // isFavorite,
-    // setIsFavorite,
     productImage,
-    setProductImage,
     productName,
-    setProductName,
     productPrice,
-    setProductPrice,
     quantity,
     setQuantity,
     selectedColor,
-    setSelectedColor,
     selectedSize,
     setSelectedSize,
     onAddToCart,
-    // handleRemoveFromFavorites,
-    // onAddToFavorites,
     initializeProductState
   } = useProductState(product);
 
-  const {
-    favoriteItems,
-    setFavoriteItems,
-    isFavorite,
-    setIsFavorite,
-    removeFromFavorites,
-    addToFavorites,
-  } = useContext(FavoritesContext);
+  const { favoriteItems, isFavorite, setIsFavorite, removeFromFavorites, addToFavorites } =
+    useContext(FavoritesContext);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/products/${productId}`, { withCredentials: true });
+      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/products/${productId}`, {
+        withCredentials: true
+      });
       setProduct(res.data);
       initializeProductState(res.data);
-      setProducts([res.data]); //debug
     };
     fetchData();
   }, [productId]);
 
-  // useEffect(() => {
-  //   if (favoriteItems.length > 0 && products.length > 0) {
-  //     const favoriteIds = favoriteItems.map(item => item.id);
-  //     setIsFavorite({ [productId]: favoriteIds.includes(Number(productId)) });
-  //   }
-  // }, [favoriteItems, products, productId]);
-
   useEffect(() => {
-    console.log("useEffect running. favoriteItems, products, productId:", favoriteItems, products, productId);
     if (favoriteItems.length > 0 && products.length > 0) {
-      const favoriteIds = favoriteItems.map(item => item.id);
-      console.log("favoriteIds: ", favoriteIds);
+      const favoriteIds = favoriteItems.map((item) => item.id);
       setIsFavorite({ [productId]: favoriteIds.includes(Number(productId)) });
     }
   }, [favoriteItems, products, productId]);
 
- 
-
   if (!product) {
     return <p>Loading...</p>;
   }
-  // const renderColor = product.color == null ? false : true;
-  // const renderSize = product.size == null ? false : true;
 
   return (
     <div className="product-page">
@@ -116,36 +88,43 @@ const ProductPage = () => {
             />
           </div>
           <div className="product-buttons">
-            <button onClick={() => {
-  onAddToCart({
-    productId,
-    productImage,
-    productName,
-    productPrice,
-    quantity,
-    selectedColor,
-    selectedSize,
-  });
-  handleShowCard();
-}}
+            <button
+              onClick={() => {
+                onAddToCart({
+                  productId,
+                  productImage,
+                  productName,
+                  productPrice,
+                  quantity,
+                  selectedColor,
+                  selectedSize
+                });
+                handleShowCard();
+              }}
             >
               Add to Cart
             </button>
             {isFavorite[productId] ? (
-              <button className="remove-from-favorites-button" onClick={() => removeFromFavorites(productId)}
+              <button
+                className="remove-from-favorites-button"
+                onClick={() => removeFromFavorites(productId)}
               >
                 ❤️ Favorite
               </button>
             ) : (
-              <button className="add-to-favorites-button" onClick={() => addToFavorites({
-                productId,
-                productImage,
-                productName,
-                productPrice,
-                quantity,
-                selectedColor,
-                selectedSize,
-              })}
+              <button
+                className="add-to-favorites-button"
+                onClick={() =>
+                  addToFavorites({
+                    productId,
+                    productImage,
+                    productName,
+                    productPrice,
+                    quantity,
+                    selectedColor,
+                    selectedSize
+                  })
+                }
               >
                 Add to Favorites
               </button>
@@ -154,13 +133,18 @@ const ProductPage = () => {
         </div>
       </div>
       <div className={`card ${showCard ? 'show' : ''}`}>
-      <div style={{
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'center',
-  gap: '10px',
-}}><img src={productImage} width="80"/><span style={{fontWeight: "Bold"}}>Added to cart!</span></div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '10px'
+          }}
+        >
+          <img src={productImage} width="80" />
+          <span style={{ fontWeight: 'Bold' }}>Added to cart!</span>
+        </div>
       </div>
     </div>
   );

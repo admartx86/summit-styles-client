@@ -11,11 +11,13 @@ const ProductList = ({ category }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/products`, { withCredentials: true });
+      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/products`, {
+        withCredentials: true
+      });
       let productList = res.data;
 
       if (category) {
-        productList = productList.filter(product => product.category.includes(category));
+        productList = productList.filter((product) => product.category.includes(category));
       }
 
       setProducts(productList);
@@ -30,19 +32,30 @@ const ProductList = ({ category }) => {
 
   return (
     <div className="product-list">
-      {products.map(product => (
-        <div 
-          key={product.id} 
-          className="listed-product" 
+      {products.map((product) => (
+        <div
+          key={product.id}
+          className="listed-product"
           onClick={() => navigateToProduct(product.id)}
         >
-          <div className="product" style={{ 
-    backgroundColor: isFavorite[product.id] ? "#A74C4F" : "initial",
-    padding: "5px"
-  }}>
+          <div
+            className="product"
+            style={{
+              backgroundColor: isFavorite[product.id] ? '#A74C4F' : 'initial',
+              padding: '5px'
+            }}
+          >
             <img src={product.image} alt={product.name} />
-            <h2 className='product-name' style={{ color: isFavorite[product.id] ? "white" : "initial" }}>{product.name}</h2>
-            <p className='product-price' style={{ color: isFavorite[product.id] ? "white" : "initial" }}>{`$${product.price.toFixed(2)}`}</p>
+            <h2
+              className="product-name"
+              style={{ color: isFavorite[product.id] ? 'white' : 'initial' }}
+            >
+              {product.name}
+            </h2>
+            <p
+              className="product-price"
+              style={{ color: isFavorite[product.id] ? 'white' : 'initial' }}
+            >{`$${product.price.toFixed(2)}`}</p>
           </div>
         </div>
       ))}

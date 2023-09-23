@@ -1,8 +1,5 @@
+.env
 dist
 node_modules
-.env
-developer.txt
+admartx86.txt
 products.json
-.prettierrc
-src/components/test.js
-src/components/bookmark.js

@@ -11,8 +11,8 @@ const useProductState = (initialProduct) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
-  const { cartItems, setCartItems } = useContext(CartContext); 
- 
+  const { setCartItems } = useContext(CartContext);
+
   const {
     favoriteItems,
     setFavoriteItems,
@@ -21,7 +21,7 @@ const useProductState = (initialProduct) => {
     addToFavorites,
     removeFromFavorites
   } = useContext(FavoritesContext);
-  
+
   useEffect(() => {
     if (initialProduct) {
       setProductImage(initialProduct.image);
@@ -42,25 +42,16 @@ const useProductState = (initialProduct) => {
     }
   };
 
-  // useEffect(() => {
-  //   const fetchFavorites = async () => {
-  //     const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-favorites`, { withCredentials: true });
-  //     if (response.status === 200) {
-  //       setFavoriteItems(response.data.favorites);
-  //       const favoriteIds = response.data.favorites.map(item => item.id);
-  //       let favoriteStatus = {};
-  //       products.forEach(product => {
-  //         favoriteStatus[product.id] = favoriteIds.includes(Number(product.id));
-  //       });
-  //       setIsFavorite(favoriteStatus);
-  //     }
-  //   };
-  //   fetchFavorites();
-  // }, []);
-
-  const onAddToCart = async ({ productId, productImage, productName, productPrice, quantity, selectedColor, selectedSize }) => {
+  const onAddToCart = async ({
+    productId,
+    productImage,
+    productName,
+    productPrice,
+    quantity,
+    selectedColor,
+    selectedSize
+  }) => {
     try {
-      console.log(productId, productImage, productName, productPrice, quantity, selectedColor, selectedSize);
       const response = await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/add-to-cart`,
         {
@@ -77,7 +68,6 @@ const useProductState = (initialProduct) => {
         { withCredentials: true }
       );
       if (response.status === 200) {
-       
         const newItem = {
           id: Number(productId),
           image: productImage,
@@ -87,22 +77,17 @@ const useProductState = (initialProduct) => {
           color: selectedColor,
           size: selectedSize
         };
-        console.log("New Item: ", newItem); // debug
-        setCartItems(prevCartItems => [...prevCartItems, newItem]);
-        // alert("Item successfully added to cart.");
-        
-        
+        setCartItems((prevCartItems) => [...prevCartItems, newItem]);
       }
     } catch (error) {
-      console.error("There was an error adding the item to the cart:", error);
-      alert("Unable to add to cart. Please try again.");
+      console.error('There was an error adding the item to the cart:', error);
+      alert('Unable to add to cart. Please try again.');
     }
   };
 
-    const calculateTotalFavorites = () => {
-      console.log("Favorite items:", favoriteItems);
-      return favoriteItems.length;
-    };
+  const calculateTotalFavorites = () => {
+    return favoriteItems.length;
+  };
 
   return {
     products,
