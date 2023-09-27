@@ -2,15 +2,20 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import UserContext from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../contexts/CartContext';
+import { FavoritesContext } from '../contexts/FavoritesContext';
+import { usePersistedUser } from './usePersistedUser';
 
 const MyAccount = () => {
+  usePersistedUser();
   const navigate = useNavigate();
   const { username, setUsername } = useContext(UserContext);
-
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [registerUsername, setRegisterUsername] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
+  const { setCartItems, fetchCart } = useContext(CartContext);
+  const { setFavoriteItems, fetchFavorites } = useContext(FavoritesContext);
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -21,7 +26,10 @@ const MyAccount = () => {
         { withCredentials: true }
       );
       console.log('Logout post request successful', res.data);
+      localStorage.clear();
       setUsername(null);
+      setCartItems([]);
+      setFavoriteItems([]);
       navigate('/');
     } catch (error) {
       console.log('Logout post request failed', error);
@@ -36,6 +44,11 @@ const MyAccount = () => {
         { withCredentials: true }
       );
       setUsername(username);
+      localStorage.setItem('SummitStylesToken', JSON.stringify(username));
+      console.log(username);
+      fetchCart();
+      fetchFavorites();
+
       navigate('/');
     } catch (error) {
       console.log('Login post request failed', error);

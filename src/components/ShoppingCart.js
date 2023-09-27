@@ -3,8 +3,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
 import { FavoritesContext } from '../contexts/FavoritesContext';
+import { usePersistedUser } from './usePersistedUser';
 
 const ShoppingCart = () => {
+  usePersistedUser();
   const { cartItems, setCartItems } = useContext(CartContext);
   const { isFavorite, fetchFavorites } = useContext(FavoritesContext);
 

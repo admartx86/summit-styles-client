@@ -7,6 +7,7 @@ import Mens from './Mens';
 import Kids from './Kids';
 import BagsGear from './BagsGear';
 import ProductPage from './ProductPage';
+import { usePersistedUser } from './usePersistedUser';
 
 const Redirect = () => {
   const navigate = useNavigate();
@@ -17,6 +18,8 @@ const Redirect = () => {
 };
 
 const Shop = () => {
+  usePersistedUser();
+
   return (
     <div>
       <nav className="shop-nav">

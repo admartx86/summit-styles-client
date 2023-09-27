@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FavoritesContext } from '../contexts/FavoritesContext';
+import { usePersistedUser } from './usePersistedUser';
 
 const Favorites = () => {
+  usePersistedUser();
+
   const { favoriteItems, removeFromFavorites } = useContext(FavoritesContext);
 
   return (

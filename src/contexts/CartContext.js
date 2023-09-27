@@ -8,7 +8,7 @@ export const CartProvider = ({ children }) => {
   const [showCard, setShowCard] = useState(false);
   const [hasAddedNewItem, setHasAddedNewItem] = useState(false);
 
-  useEffect(() => {
+  const fetchCart = async () => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/get-cart`, { withCredentials: true })
       .then((response) => {
@@ -22,6 +22,10 @@ export const CartProvider = ({ children }) => {
       .catch((error) => {
         console.error('Error fetching cart items:', error);
       });
+  };
+
+  useEffect(() => {
+    fetchCart();
   }, [hasAddedNewItem]);
 
   const handleShowCard = () => {
@@ -38,7 +42,15 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, setCartItems, showCard, setShowCard, handleShowCard, addItemToCart }}
+      value={{
+        cartItems,
+        setCartItems,
+        showCard,
+        setShowCard,
+        handleShowCard,
+        addItemToCart,
+        fetchCart
+      }}
     >
       {children}
     </CartContext.Provider>
