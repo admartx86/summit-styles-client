@@ -38,8 +38,8 @@ const CategoryCarousel = () => {
   };
 
   return (
-    <div className="category-carousel">
-      <p>Something for everyone</p>
+    <section className="category-carousel" aria-label="Shop by Category">
+      <h2>Something for everyone</h2>
       <Carousel
         className="carousel"
         showThumbs={false}
@@ -57,14 +57,16 @@ const CategoryCarousel = () => {
       >
         {categories.map((category, index) => (
           <Link key={index} to={categoryRoutes[category]} className="carousel-item">
-            <div className="image-wrapper">
+            <figure className="image-wrapper">
               <img src={categoryImages[category]} alt={category} />
-              <h3 className="category">{category}</h3>
-            </div>
+              <figcaption>
+                <h3 className="category">{category}</h3>
+              </figcaption>
+            </figure>
           </Link>
         ))}
       </Carousel>
-    </div>
+    </section>
   );
 };
 

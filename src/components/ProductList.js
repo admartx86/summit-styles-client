@@ -31,14 +31,14 @@ const ProductList = ({ category }) => {
   };
 
   return (
-    <div className="product-list">
+    <section className="product-list">
       {products.map((product) => (
-        <div
+        <article
           key={product.id}
           className="listed-product"
           onClick={() => navigateToProduct(product.id)}
         >
-          <div
+          <figure
             className="product"
             style={{
               backgroundColor: isFavorite[product.id] ? '#A74C4F' : 'initial',
@@ -46,20 +46,24 @@ const ProductList = ({ category }) => {
             }}
           >
             <img src={product.image} alt={product.name} />
-            <h2
-              className="product-name"
-              style={{ color: isFavorite[product.id] ? 'white' : 'initial' }}
-            >
-              {product.name}
-            </h2>
-            <p
-              className="product-price"
-              style={{ color: isFavorite[product.id] ? 'white' : 'initial' }}
-            >{`$${product.price.toFixed(2)}`}</p>
-          </div>
-        </div>
+            <figcaption>
+              <h2
+                className="product-name"
+                style={{ color: isFavorite[product.id] ? 'white' : 'initial' }}
+              >
+                {product.name}
+              </h2>
+              <p
+                className="product-price"
+                style={{ color: isFavorite[product.id] ? 'white' : 'initial' }}
+              >
+                {`$${product.price.toFixed(2)}`}
+              </p>
+            </figcaption>
+          </figure>
+        </article>
       ))}
-    </div>
+    </section>
   );
 };
 

@@ -20,6 +20,10 @@ body {
   color: #2a2a2a;
 }
 
+ul {
+  list-style: none;
+}
+
 a,
 a:visited,
 a:active,
@@ -258,6 +262,15 @@ header {
 .Section1 button:hover,
 .Section3 button:hover {
   background-color: #4ca787;
+}
+
+.category-carousel h2 {
+  color: #2a2a2a;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+
+  font-weight: bold;
+  margin: 20px;
+  margin-left: 20px;
 }
 
 .category-carousel p {
@@ -563,6 +576,53 @@ header {
 .favorites h1 {
   padding: 20px;
 }
+
+.favorites button {
+  background-color: #ffffff;
+  display: block;
+  width: 100%;
+  gap: 20px;
+  padding: 10px 15px;
+  margin: 20px 0px;
+  border-radius: 30px;
+  cursor: pointer;
+  max-width: 100%;
+  border: 2px solid #ffffff;
+  font-size: x-large;
+  color: #a74c4f;
+  border: 2px solid #a74c4f;
+}
+
+.favorites button:hover {
+  background-color: #ffffff;
+  color: #884143;
+  border: 2px solid #884143;
+}
+
+@media (max-width: 1200px) {
+  .favorites button {
+    font-size: large;
+  }
+}
+
+@media (max-width: 550px) {
+  .favorites button {
+    font-size: medium;
+  }
+}
+
+@media (max-width: 400px) {
+  .favorites button {
+    font-size: small;
+  }
+}
+
+///
+
+* {
+  border: 1px solid red;
+}
+
 .favorites-name {
   font-size: 24px;
   font-weight: bold;

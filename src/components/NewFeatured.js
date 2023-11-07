@@ -5,7 +5,9 @@ const NewFeatured = () => {
   return (
     <div>
       <h1 className="shop-title">New & Featured</h1>
-      <ProductList category="new-and-featured" />
+      <section>
+        <ProductList category="new-and-featured" />
+      </section>
     </div>
   );
 };

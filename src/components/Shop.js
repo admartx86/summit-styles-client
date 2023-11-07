@@ -22,25 +22,39 @@ const Shop = () => {
 
   return (
     <div>
-      <nav className="shop-nav">
-        <Link to="/shop/sale" className="shop-nav-link">
-          Sale
-        </Link>
-        <Link to="/shop/new-featured" className="shop-nav-link">
-          New & Featured
-        </Link>
-        <Link to="/shop/womens" className="shop-nav-link">
-          Women's
-        </Link>
-        <Link to="/shop/mens" className="shop-nav-link">
-          Men's
-        </Link>
-        <Link to="/shop/kids" className="shop-nav-link">
-          Kids
-        </Link>
-        <Link to="/shop/bags-gear" className="shop-nav-link">
-          Bags & Gear
-        </Link>
+      <nav>
+        <ul className="shop-nav">
+          <li>
+            <Link to="/shop/sale" className="shop-nav-link">
+              Sale
+            </Link>
+          </li>
+          <li>
+            <Link to="/shop/new-featured" className="shop-nav-link">
+              New & Featured
+            </Link>
+          </li>
+          <li>
+            <Link to="/shop/womens" className="shop-nav-link">
+              Women's
+            </Link>
+          </li>
+          <li>
+            <Link to="/shop/mens" className="shop-nav-link">
+              Men's
+            </Link>
+          </li>
+          <li>
+            <Link to="/shop/kids" className="shop-nav-link">
+              Kids
+            </Link>
+          </li>
+          <li>
+            <Link to="/shop/bags-gear" className="shop-nav-link">
+              Bags & Gear
+            </Link>
+          </li>
+        </ul>
       </nav>
       <Routes>
         <Route path="/" element={<Redirect to="sale" />} />

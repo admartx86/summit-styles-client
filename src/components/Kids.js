@@ -5,7 +5,9 @@ const Kids = () => {
   return (
     <div>
       <h1 className="shop-title">Kids</h1>
-      <ProductList category="kids'" />
+      <section>
+        <ProductList category="kids'" />
+      </section>
     </div>
   );
 };

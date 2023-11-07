@@ -33,13 +33,15 @@ const App = () => {
               <SiteLogo />
               <MainNavigation />
             </header>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/shop/*" element={<Shop />} />
-              <Route path="/account" element={<MyAccount />} />
-              <Route path="/favorites" element={<Favorites />} />
-              <Route path="/cart" element={<ShoppingCart />} />
-            </Routes>
+            <main>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/shop/*" element={<Shop />} />
+                <Route path="/favorites" element={<Favorites />} />
+                <Route path="/cart" element={<ShoppingCart />} />
+                <Route path="/account" element={<MyAccount />} />
+              </Routes>
+            </main>
             <footer>
               <FooterLinks />
               <SocialMediaLinks />

@@ -8,7 +8,7 @@ const SocialMediaLinks = () => {
   return (
     <section className="social-media-links">
       <h3>Follow us</h3>
-      <div>
+      <nav>
         <a href="#" onClick={(e) => e.preventDefault()}>
           <img src={twitterIcon} alt="Twitter" />
         </a>
@@ -21,7 +21,7 @@ const SocialMediaLinks = () => {
         <a href="#" onClick={(e) => e.preventDefault()}>
           <img src={pinterestIcon} alt="Pinterest" />
         </a>
-      </div>
+      </nav>
     </section>
   );
 };
