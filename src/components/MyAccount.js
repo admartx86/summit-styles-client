@@ -1,10 +1,13 @@
 import React, { useState, useContext } from 'react';
-import axios from 'axios';
+
 import UserContext from '../contexts/UserContext';
-import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
 import { FavoritesContext } from '../contexts/FavoritesContext';
 import { usePersistedUser } from './usePersistedUser';
+
+import { useNavigate } from 'react-router-dom';
+
+import axios from 'axios';
 
 const MyAccount = () => {
   usePersistedUser();

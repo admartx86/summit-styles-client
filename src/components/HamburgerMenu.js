@@ -7,6 +7,7 @@ import { CartContext } from '../contexts/CartContext';
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
+
   const { username } = useContext(UserContext);
   const { favoriteItems } = useContext(FavoritesContext);
   const { cartItems } = useContext(CartContext);
@@ -34,7 +35,7 @@ const HamburgerMenu = () => {
   };
 
   return (
-    <div className="hamburger-menu">
+    <nav className="hamburger-menu">
       <button onClick={toggleMenu} className="hamburger-button">
         {isOpen || isShopMenuOpen ? '✕' : '☰'}
       </button>
@@ -103,7 +104,7 @@ const HamburgerMenu = () => {
           </Link>
         </div>
       )}
-    </div>
+    </nav>
   );
 };
 

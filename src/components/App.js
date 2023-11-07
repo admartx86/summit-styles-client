@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
 import { Routes, Route } from 'react-router-dom';
-import '../css/styles.css';
+
 import UserContext from '../contexts/UserContext';
 import { CartProvider } from '../contexts/CartContext';
 import { FavoritesProvider } from '../contexts/FavoritesContext';
+
+import '../css/styles.css';
 
 import SiteLogo from './SiteLogo';
 import MainNavigation from './MainNavigation';
@@ -18,6 +20,7 @@ import MyAccount from './MyAccount';
 import FooterLinks from './FooterLinks';
 import SocialMediaLinks from './SocialMediaLinks';
 import Newsletter from './Newsletter';
+
 import ScrollToTop from './ScrollToTop';
 
 const App = () => {

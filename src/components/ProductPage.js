@@ -52,7 +52,8 @@ const ProductPage = () => {
 
   return (
     <div className="product-page">
-      <div className="product">
+      
+      <article className="product">
         <img src={product.image} alt={product.name} />
         <div className="product-details">
           <h2 className="product-name">{product.name}</h2>
@@ -131,7 +132,8 @@ const ProductPage = () => {
             )}
           </div>
         </div>
-      </div>
+      </article>
+
       <div className={`card ${showCard ? 'show' : ''}`}>
         <div
           style={{

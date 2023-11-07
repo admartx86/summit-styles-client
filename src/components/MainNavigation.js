@@ -19,7 +19,7 @@ const MainNavigation = () => {
   };
 
   return (
-    <nav className="main-navigation">
+    <div className="main-navigation">
       <div className="hello-user">
         {username ? (
           <div>
@@ -29,7 +29,7 @@ const MainNavigation = () => {
           </div>
         ) : null}
       </div>
-      <div className="main-navigation-links">
+      <nav className="main-navigation-links">
         <Link to="/" className="main-navigation-link">
           <img src="https://summit-styles.s3.us-east-2.amazonaws.com/home-32-px.png" alt="" />
           <p>Home</p>
@@ -70,10 +70,9 @@ const MainNavigation = () => {
           <img src="https://summit-styles.s3.us-east-2.amazonaws.com/user-32-px.png" alt="" />
           {username ? <p>Account</p> : <p>Sign In / Register</p>}
         </Link>
-      </div>
-
+      </nav>
       <HamburgerMenu />
-    </nav>
+    </div>
   );
 };
 
