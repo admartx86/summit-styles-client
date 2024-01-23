@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import backgroundImage from '../img/section-1-banner.png';
+import backgroundImage from '../img/section-1-banner.webp';
 
 const HomeSection1 = () => {
   return (

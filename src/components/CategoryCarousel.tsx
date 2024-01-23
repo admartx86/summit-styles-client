@@ -2,12 +2,12 @@ import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { useNavigate, Link } from 'react-router-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import womensImage from '../img/womens.jpg';
-import mensImage from '../img/mens.jpg';
-import kidsImage from '../img/kids.jpg';
-import bagsGearImage from '../img/bagsgear.jpg';
-import newFeaturedImage from '../img/newfeatured.jpg';
-import saleImage from '../img/sale.jpg';
+import womensImage from '../img/womens.webp';
+import mensImage from '../img/mens.webp';
+import kidsImage from '../img/kids.webp';
+import bagsGearImage from '../img/bagsgear.webp';
+import newFeaturedImage from '../img/newfeatured.webp';
+import saleImage from '../img/sale.webp';
 
 const categories = ["Men's", "Kids'", 'Bags & Gear', 'New & Featured', 'Sale', "Women's"];
 
