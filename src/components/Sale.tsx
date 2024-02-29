@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductList from './ProductList';
 
-const Sale = () => {
+const Sale: React.FC = () => {
   return (
     <div>
       <h1 className='shop-title'>Sale</h1>
