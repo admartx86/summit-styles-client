@@ -1,3 +1,5 @@
+import { Request, Response } from 'express';
+
 require('dotenv').config();
 
 const express = require('express');
@@ -6,7 +8,7 @@ const app = express();
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.get('/*', (req, res) => {
+app.get('/*', (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
