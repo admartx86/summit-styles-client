@@ -4,7 +4,7 @@ import HomeSection3 from './HomeSection3';
 import CategoryCarousel from './CategoryCarousel';
 import { usePersistedUser } from './usePersistedUser';
 
-const Home = () => {
+const Home: React.FC = () => {
   usePersistedUser();
 
   return (
