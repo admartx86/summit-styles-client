@@ -24,7 +24,7 @@ import Newsletter from './Newsletter';
 import ScrollToTop from './ScrollToTop';
 
 const App = () => {
-  const [username, setUsername] = useState(null);
+  const [username, setUsername] = useState<string | null>(null);
 
   return (
     <div>
