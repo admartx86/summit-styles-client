@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { createContext, Dispatch, SetStateAction } from 'react';
 
-const UserContext = React.createContext(null);
+type UserContextType = {
+    username: string | null;
+    setUsername: Dispatch<SetStateAction<string | null>>;
+};
+
+const UserContext = createContext<UserContextType | null>(null);
 
 export default UserContext;
