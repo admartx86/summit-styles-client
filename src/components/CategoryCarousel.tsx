@@ -9,9 +9,17 @@ import bagsGearImage from '../img/bagsgear.webp';
 import newFeaturedImage from '../img/newfeatured.webp';
 import saleImage from '../img/sale.webp';
 
-const categories = ["Men's", "Kids'", 'Bags & Gear', 'New & Featured', 'Sale', "Women's"];
+type Category =
+  "Men's" |
+  "Kids'" |
+  'Bags & Gear' |
+  'New & Featured' |
+  'Sale' |
+  "Women's";
 
-const categoryImages = {
+const categories: Category[] = ["Men's", "Kids'", 'Bags & Gear', 'New & Featured', 'Sale', "Women's"];
+
+const categoryImages: { [key in Category]: string } = {
   Sale: saleImage,
   "Women's": womensImage,
   "Men's": mensImage,
@@ -29,10 +37,10 @@ const categoryRoutes = {
   'New & Featured': '/shop/new-featured'
 };
 
-const CategoryCarousel = () => {
+const CategoryCarousel: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleItemClick = (index) => {
+  const handleItemClick = (index: number) => {
     const category = categories[index];
     navigate(categoryRoutes[category]);
   };
