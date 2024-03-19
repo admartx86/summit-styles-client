@@ -1,9 +1,13 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
-export const FavoritesContext = createContext();
+export const FavoritesContext = createContext([]);
 
-export const FavoritesProvider = ({ children }) => {
+type FavoritesProviderType = {
+  children: ReactNode;
+};
+
+export const FavoritesProvider: React.FC<FavoritesProviderType> = ({ children }) => {
   const [favoriteItems, setFavoriteItems] = useState([]);
   const [isFavorite, setIsFavorite] = useState({});
 
