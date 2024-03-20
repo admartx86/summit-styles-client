@@ -1,6 +1,13 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
+type ItemType = {
+  productId: number;
+  productName: string;
+  productImage: string;
+  productPrice: number;
+};
+
 export const FavoritesContext = createContext([]);
 
 type FavoritesProviderType = {
@@ -22,7 +29,7 @@ export const FavoritesProvider: React.FC<FavoritesProviderType> = ({ children })
       });
       if (response.status === 200) {
         setFavoriteItems(response.data.favorites);
-        const favoriteIds = response.data.favorites.map((item) => item.id);
+        const favoriteIds = response.data.favorites.map((item: ItemType) => item.productId);
         let favoriteStatus = {};
         favoriteIds.forEach((id) => {
           favoriteStatus[id] = true;
@@ -34,7 +41,7 @@ export const FavoritesProvider: React.FC<FavoritesProviderType> = ({ children })
     }
   };
 
-  const addToFavorites = async (item) => {
+  const addToFavorites = async (item: ItemType) => {
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/add-to-favorites`,
