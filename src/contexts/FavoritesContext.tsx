@@ -30,8 +30,8 @@ export const FavoritesProvider: React.FC<FavoritesProviderType> = ({ children })
       if (response.status === 200) {
         setFavoriteItems(response.data.favorites);
         const favoriteIds = response.data.favorites.map((item: ItemType) => item.productId);
-        let favoriteStatus = {};
-        favoriteIds.forEach((id) => {
+        let favoriteStatus: { [key: number]: boolean} = {};
+        favoriteIds.forEach((id: number) => {
           favoriteStatus[id] = true;
         });
         setIsFavorite(favoriteStatus);
