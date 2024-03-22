@@ -2,9 +2,16 @@ import { useEffect, useContext } from 'react';
 import UserContext from '../contexts/UserContext';
 
 export const usePersistedUser = () => {
-  const { setUsername } = useContext(UserContext);
+  const context = useContext(UserContext);
 
   useEffect(() => {
+    if (!context) {
+      console.error('UserContext not found');
+      return;
+    }
+
+    const { setUsername } = context;
+
     const loggedInUser = localStorage.getItem('SummitStylesToken');
     if (loggedInUser) {
       try {
@@ -15,5 +22,5 @@ export const usePersistedUser = () => {
         localStorage.removeItem('SummitStylesToken');
       }
     }
-  }, [setUsername]);
+  }, [context]);
 };

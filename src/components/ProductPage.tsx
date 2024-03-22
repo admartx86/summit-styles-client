@@ -52,7 +52,6 @@ const ProductPage = () => {
 
   return (
     <div className="product-page">
-      
       <article className="product">
         <img src={product.image} alt={product.name} />
         <div className="product-details">

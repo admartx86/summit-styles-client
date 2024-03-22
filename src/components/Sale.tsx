@@ -4,7 +4,7 @@ import ProductList from './ProductList';
 const Sale: React.FC = () => {
   return (
     <div>
-      <h1 className='shop-title'>Sale</h1>
+      <h1 className="shop-title">Sale</h1>
       <section>
         <ProductList category="sale" />
       </section>

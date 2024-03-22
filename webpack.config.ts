@@ -14,7 +14,7 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       template: './src/index.html',
-      favicon: './src/favicon.ico',
+      favicon: './src/favicon.ico'
     }),
     new Dotenv()
   ],

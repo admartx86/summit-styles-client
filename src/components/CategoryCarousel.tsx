@@ -9,15 +9,16 @@ import bagsGearImage from '../img/bagsgear.webp';
 import newFeaturedImage from '../img/newfeatured.webp';
 import saleImage from '../img/sale.webp';
 
-type Category =
-  "Men's" |
-  "Kids'" |
-  'Bags & Gear' |
-  'New & Featured' |
-  'Sale' |
-  "Women's";
+type Category = "Men's" | "Kids'" | 'Bags & Gear' | 'New & Featured' | 'Sale' | "Women's";
 
-const categories: Category[] = ["Men's", "Kids'", 'Bags & Gear', 'New & Featured', 'Sale', "Women's"];
+const categories: Category[] = [
+  "Men's",
+  "Kids'",
+  'Bags & Gear',
+  'New & Featured',
+  'Sale',
+  "Women's"
+];
 
 const categoryImages: { [key in Category]: string } = {
   Sale: saleImage,
