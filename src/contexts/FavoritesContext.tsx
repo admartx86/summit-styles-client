@@ -8,14 +8,31 @@ type ItemType = {
   productPrice: number;
 };
 
-export const FavoritesContext = createContext([]);
+type FavoriteItem = {
+  id: number;
+  image: string;
+  name: string;
+  price: number;
+};
+
+type FavoritesContextType = {
+  favoriteItems: FavoriteItem[];
+  setFavoriteItems: React.Dispatch<React.SetStateAction<FavoriteItem[]>>;
+  isFavorite: { [key: number]: boolean };
+  setIsFavorite: React.Dispatch<React.SetStateAction<{ [key: number]: boolean }>>;
+  addToFavorites: (item: ItemType) => void;
+  removeFromFavorites: (itemId: number) => void;
+  fetchFavorites: () => void;
+};
+
+export const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
 
 type FavoritesProviderType = {
   children: ReactNode;
 };
 
 export const FavoritesProvider: React.FC<FavoritesProviderType> = ({ children }) => {
-  const [favoriteItems, setFavoriteItems] = useState([]);
+  const [favoriteItems, setFavoriteItems] = useState<FavoriteItem[]>([]);
   const [isFavorite, setIsFavorite] = useState({});
 
   useEffect(() => {
@@ -71,7 +88,7 @@ export const FavoritesProvider: React.FC<FavoritesProviderType> = ({ children })
     }
   };
 
-  const removeFromFavorites = async (itemId) => {
+  const removeFromFavorites = async (itemId: number) => {
     try {
       const response = await axios.delete(
         `${process.env.REACT_APP_BACKEND_URL}/remove-from-favorites/${itemId}`,
