@@ -6,7 +6,13 @@ import { usePersistedUser } from './usePersistedUser';
 const Favorites = () => {
   usePersistedUser();
 
-  const { favoriteItems, removeFromFavorites } = useContext(FavoritesContext);
+  const context = useContext(FavoritesContext);
+
+  if (!context) {
+    return <div>Loading...</div>;
+  }
+
+  const { favoriteItems, removeFromFavorites } = context;
 
   return (
     <div>
