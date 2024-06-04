@@ -4,13 +4,11 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.tsx',
-
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/'
   },
-
   plugins: [
     new HTMLWebpackPlugin({
       template: './src/index.html',
